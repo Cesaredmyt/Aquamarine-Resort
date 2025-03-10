@@ -1,0 +1,245 @@
+/* Importación de fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FAF8F5;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 75vh;
+    background: url('imgs/fondo.png') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+    position: absolute;
+    top: 80px; /* Ajuste para mejor alineación */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* Ajuste del Navbar */
+.nav-container {
+    background: white;
+    padding: 15px 80px; /* Mantener margen equilibrado */
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 75%;
+    max-width: 1000px; /* Aumentado para mejorar distribución */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Ajustar las secciones del navbar */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 45px; /* Ajuste de separación uniforme */
+    margin: 0;
+    padding: 0;
+}
+
+/* Ajustar las secciones del navbar */
+/* Ajuste de separación de los enlaces del navbar */
+/* Ajuste preciso de los enlaces del navbar */
+/* Ajuste preciso de los enlaces del navbar */
+.nav-links.left {
+    flex: 1;
+    text-align: right;
+    padding-right: 90px; /* Se reduce un poco para acercar "Galería" */
+}
+
+.nav-links.right {
+    flex: 1;
+    text-align: left;
+    padding-left: 120px; /* Se mantiene la separación del lado derecho */
+}
+
+/* Ajuste de separación específica */
+.nav-links.left li:last-child {
+    margin-right: 5px; /* "Galería" más cerca del logo */
+}
+
+.nav-links.right li:first-child {
+    margin-left: 50px; /* "Habitaciones" mantiene la separación */
+}
+
+
+
+
+/* Ajuste del Logo */
+.logo {
+    position: absolute;
+    top: -50px;
+    left: 48%;
+    transform: translateX(-50%);
+    z-index: 9;
+}
+
+.logo img {
+    height: 120px;
+    display: block;
+}
+
+
+
+
+
+/* Estilo de los enlaces */
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 400;
+    transition: 0.3s ease;
+}
+
+/* Página activa con subrayado */
+.nav-links li a.active {
+    color: #1E6091;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+
+
+/* Estilo del texto */
+.hero-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px; /* Ajuste exacto de tamaño */
+    font-style: italic;
+    font-weight: 400;
+    color: white;
+    line-height: 125%;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil para resaltar */
+}
+
+
+
+
+
+
+
+
+
+/* Fuente Lato solo en la sección de reservaciones */
+.reservation-section {
+    font-family: 'Lato', sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 0;
+    background-color: #FAF8F5;
+}
+
+/* Contenedor de la reserva */
+.reservation-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 1100px;
+    text-align: left;
+    gap: 50px;
+}
+
+/* Estilos de cada bloque de reserva */
+.reservation-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Contenedor del texto al lado del icono */
+.reservation-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+/* Iconos alineados a la izquierda */
+.reservation-item i {
+    font-size: 16px;
+    color: #C8A97E;
+}
+
+/* Títulos corregidos con fuente y tamaño exactos */
+.reservation-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #525252;
+    line-height: 125%;
+    margin: 0;
+}
+
+/* Fechas corregidas con fuente, tamaño y color exactos */
+.reservation-date {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+    line-height: 125%;
+}
+
+/* Línea divisoria */
+.divider {
+    width: 1px;
+    height: 30px;
+    background-color: #DDC8A3;
+    margin: 0 25px;
+}
+
+/* Botón Reservar */
+.btn-reservar {
+    background-color: #C8A97E;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Lato', sans-serif;
+    align-self: center;
+}
+
+.btn-reservar:hover {
+    background-color: #A07D54;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reservation-container {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .divider {
+        display: none;
+    }
+
+    .btn-reservar {
+        margin-left: 0;
+        align-self: center;
+    }
+}
