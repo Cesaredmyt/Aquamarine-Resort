@@ -1,81 +1,239 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aquamarine Resort</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</head>
-<body>
-
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
     <header class="hero">
-        <nav class="navbar">
-          <div class="nav-container">
-            <!-- Enlaces de la izquierda -->
-            <ul class="nav-links left">
-              <li><a href="#" class="active">Inicio</a></li>
-              <li><a href="#">Sobre Nosotros</a></li>
-              <li><a href="#">Galería</a></li>
-            </ul>
-      
-            <!-- Logo en el centro -->
-            <div class="logo">
-              <img src="imgs/logo.png" alt="Aquamarine Resort">
-            </div>
-      
-            <!-- Enlaces de la derecha -->
-            <ul class="nav-links right">
-              <li><a href="#">Habitaciones</a></li>
-              <li><a href="#">Servicios</a></li>
-              <li><a href="#">Contáctanos</a></li>
-            </ul>
+      <nav class="navbar">
+        <div class="nav-container">
+          <ul class="nav-links left">
+            <li><a href="#" class="active">Inicio</a></li>
+            <li><a href="#">Sobre Nosotros</a></li>
+            <li><a href="#">Galería</a></li>
+          </ul>
+          <div class="logo">
+            <img src="imgs/logo.png" alt="Aquamarine Resort" />
           </div>
-        </nav>
-      
-        <!-- Texto del Hero (igual a tu diseño) -->
-        <div class="hero-text-container">
-            <h1 class="hero-text">"Donde el lujo fluye y el tiempo se detiene."</h1>
+          <ul class="nav-links right">
+            <li><a href="#">Habitaciones</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contáctanos</a></li>
+          </ul>
         </div>
-        
-        
-        
-      </header>
-      
+      </nav>
+      <div class="hero-text-container">
+        <h1 class="hero-text">"Donde el lujo fluye y el tiempo se detiene."</h1>
+      </div>
+    </header>
 
     <section class="reservation-section">
-        <div class="reservation-container">
-            <div class="reservation-item">
-                <i class="fa-regular fa-calendar"></i>
-                <div class="reservation-text">
-                    <p class="reservation-title">Fecha entrada</p>
-                    <span class="reservation-date">10 Junio 2025</span>
-                </div>
-            </div>
-            <div class="divider"></div>
-            <div class="reservation-item">
-                <i class="fa-regular fa-calendar"></i>
-                <div class="reservation-text">
-                    <p class="reservation-title">Fecha salida</p>
-                    <span class="reservation-date">15 Junio 2025</span>
-                </div>
-            </div>
-            <div class="divider"></div>
-            <div class="reservation-item">
-                <i class="fa-solid fa-user-group"></i>
-                <div class="reservation-text">
-                    <p class="reservation-title">Cuartos para</p>
-                    <span class="reservation-date">3 personas</span>
-                </div>
-            </div>
-            <button class="btn-reservar">
-                <i class="fa-solid fa-magnifying-glass"></i> Reservar ahora
-            </button>
+      <div class="reservation-container">
+        <div class="reservation-item">
+          <i class="fa-regular fa-calendar"></i>
+          <div class="reservation-text">
+            <p class="reservation-title">Fecha entrada</p>
+            <span class="reservation-date">10 Junio 2025</span>
+          </div>
         </div>
-    </section>    
-    
-</body>
+        <div class="divider"></div>
+        <div class="reservation-item">
+          <i class="fa-regular fa-calendar"></i>
+          <div class="reservation-text">
+            <p class="reservation-title">Fecha salida</p>
+            <span class="reservation-date">15 Junio 2025</span>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="reservation-item">
+          <i class="fa-solid fa-user-group"></i>
+          <div class="reservation-text">
+            <p class="reservation-title">Cuartos para</p>
+            <span class="reservation-date">3 personas</span>
+          </div>
+        </div>
+        <button class="btn-reservar">
+          <i class="fa-solid fa-magnifying-glass"></i> Reservar ahora
+        </button>
+      </div>
+    </section>
+
+    <section class="events-section">
+      <h2 class="events-title">¡Disfruta con nosotros!</h2>
+      <p class="events-subtitle">Realizamos todo tipo de eventos</p>
+
+      <div class="events-container">
+        <!-- Evento 1 -->
+        <div class="event-card event-card-right">
+          <img
+            src="imgs/evento1.png"
+            alt="Ixtapa Summer Vibes"
+            class="event-image"
+          />
+          <div class="event-info">
+            <p class="event-location">en <span>Playa El Palmar</span></p>
+            <h3 class="event-name">Ixtapa Summer Vibes</h3>
+            <p class="event-description">
+              Una semana llena de música, gastronomía y actividades en la arena,
+              con presentaciones en vivo de artistas nacionales e
+              internacionales.
+            </p>
+            <p class="event-date">
+              <i class="fa-regular fa-calendar"></i> 10 Jun 2025 • por 7 días
+            </p>
+            <button class="event-button">Me interesa</button>
+          </div>
+        </div>
+
+        <!-- Evento 2 -->
+        <div class="event-card event-card-left">
+          <img
+            src="imgs/evento2.png"
+            alt="Electro Beach Zihua"
+            class="event-image"
+          />
+          <div class="event-info">
+            <p class="event-location">en <span>Playa El Palmar</span></p>
+            <h3 class="event-name">Electro Beach Zihua</h3>
+            <p class="event-description">
+              Baila al ritmo de la mejor música electrónica en un paraíso
+              tropical, con sets exclusivos al amanecer y fogatas en la playa.
+            </p>
+            <p class="event-date">
+              <i class="fa-regular fa-calendar"></i> 10 Sep 2025 • por 1 semana
+            </p>
+            <button class="event-button">Me interesa</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sunset-section">
+      <div class="sunset-overlay">
+        <h2 class="sunset-title">
+          Atardeceres, música y momentos irrepetibles
+        </h2>
+        <button class="sunset-button">Reservar ahora</button>
+      </div>
+    </section>
+
+    <section class="rooms-section">
+      <h2 class="rooms-title">Habitaciones de lujo</h2>
+      <p class="rooms-subtitle">Vea todo nuestro catálogo de habitaciones</p>
+
+      <div class="rooms-carousel">
+        <button class="carousel-btn prev">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="rooms-container">
+          <!-- Tarjeta 1 -->
+          <div class="room-card">
+            <div class="room-image">
+              <img src="imgs/suite-oceano.png" alt="Suite Óceano Aquamarine" />
+              <span class="room-rating"
+                ><i class="fa-solid fa-star"></i> 4.8</span
+              >
+            </div>
+            <h3 class="room-name">Suite Óceano Aquamarine</h3>
+            <p class="room-details">2 Baños</p>
+            <p class="room-price">$4,800 MXN <span>/ noche</span></p>
+          </div>
+
+          <!-- Tarjeta 2 -->
+          <div class="room-card">
+            <div class="room-image">
+              <img src="imgs/suite-perla.png" alt="Suite Perla del Mar" />
+              <span class="room-rating"
+                ><i class="fa-solid fa-star"></i> 4.8</span
+              >
+            </div>
+            <h3 class="room-name">Suite Perla del Mar</h3>
+            <p class="room-details">1 Baño con jacuzzi</p>
+            <p class="room-price">$5,000 MXN <span>/ noche</span></p>
+          </div>
+
+          <!-- Tarjeta 3 -->
+          <div class="room-card">
+            <div class="room-image">
+              <img src="imgs/suite-imperial.png" alt="Suite Imperial" />
+              <span class="room-rating"
+                ><i class="fa-solid fa-star"></i> 4.5</span
+              >
+            </div>
+            <h3 class="room-name">Suite Imperial</h3>
+            <p class="room-details">Habitación matrimonial</p>
+            <p class="room-price">$3,200 MXN <span>/ noche</span></p>
+          </div>
+        </div>
+
+        <button class="carousel-btn next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Descripción del hotel -->
+        <div class="footer-about">
+          <h3 class="footer-title">Aquamarine Resort</h3>
+          <p class="footer-description">
+            Un refugio de lujo frente al mar. Disfruta de nuestra hospitalidad,
+            vistas espectaculares y experiencias inolvidables.
+          </p>
+          <p class="footer-rights">
+            © Aquamarine Resort 2025. Derechos reservados
+          </p>
+        </div>
+
+        <!-- Servicios -->
+        <div class="footer-links">
+          <h4 class="footer-subtitle">Servicios</h4>
+          <ul>
+            <li><a href="#">Spa y Wellness</a></li>
+            <li><a href="#">Piscinas privadas</a></li>
+            <li><a href="#">Restaurantes Gourmet</a></li>
+          </ul>
+        </div>
+
+        <!-- Eventos -->
+        <div class="footer-links">
+          <h4 class="footer-subtitle">Eventos</h4>
+          <ul>
+            <li><a href="#">Bodas frente al mar</a></li>
+            <li><a href="#">Conferencias y reuniones</a></li>
+            <li><a href="#">Experiencias Exclusivas</a></li>
+          </ul>
+        </div>
+
+        <!-- Redes Sociales -->
+        <div class="footer-social">
+          <h4 class="footer-subtitle">Encuéntranos en:</h4>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
