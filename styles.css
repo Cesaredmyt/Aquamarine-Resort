@@ -9,11 +9,18 @@ body {
     background-color: #FAF8F5;
 }
 
+.home-page .hero {
+    background: url('imgs/fondo-home.png') no-repeat center center/cover;
+}
+
+.about-page .hero {
+    background: url('imgs/fondo-about.png') no-repeat center center/cover;
+}
+
 /* Hero Section */
 .hero {
     position: relative;
     height: 75vh;
-    background: url('imgs/fondo.png') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -699,3 +706,162 @@ body {
         justify-content: center;
     }
 }
+
+/* Separador superior con más espacio */
+.section-divider.spaced {
+    width: 70%;
+    height: 1px;
+    background-color: #C4C4C4;
+    margin: 100px auto 50px auto;
+}
+
+/* Sección Sobre Nosotros */
+.about-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor de contenido */
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 80px;
+    gap: 50px;
+}
+
+.about-content.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Texto con estilos */
+.about-text-block {
+    flex: 1;
+}
+
+.about-text {
+    font-size: 18px;
+    font-weight: 300;
+    color: #525252;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.about-text.italic {
+    font-style: italic;
+}
+
+.styled-text p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.8;
+}
+
+.highlight-gold {
+    font-weight: 600;
+    font-style: italic;
+    color: #C8A97E;
+}
+
+.highlight-blue {
+    font-weight: 700;
+    color: #1E6091;
+}
+
+.highlight-italic {
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* Estilos para las imágenes y sus fondos */
+.about-image-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fondo detrás de la imagen (más pequeño y desplazado para que sobresalga también arriba) */
+.about-image-background {
+    position: absolute;
+    width: 88%; /* Un poco más pequeño que la imagen */
+    height: 100%; /* Más alto para que sobresalga por arriba */
+    z-index: 1;
+}
+
+/* Ajuste preciso de los fondos detrás de las imágenes */
+.blue-frame .about-image-background {
+    background: #DCE5F2;
+    transform: translate(-40px, -40px); /* Más a la izquierda y más arriba */
+}
+
+.gold-frame .about-image-background {
+    background: #F3E1C9;
+    transform: translate(40px, -40px); /* Más a la derecha y más arriba */
+}
+
+/* Imagen en sí */
+.about-image {
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content.reverse {
+        flex-direction: column;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .about-image-background {
+        width: 90%;
+        height: 100%;
+        transform: translate(0, -20px);
+    }
+}
+
+/* Estilos del encabezado en Sobre Nosotros */
+.hero-text-container {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero-text {
+    font-size: 48px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero-subtitle {
+    font-size: 22px;
+    font-weight: 600;
+    font-style: italic;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 10px;
+}
+
+.hero-description {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 15px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
