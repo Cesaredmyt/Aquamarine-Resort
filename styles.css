@@ -897,7 +897,7 @@ body {
 }
 
 .services-page .hero-description {
-    font-size: 30px;
+    font-size: 50px;
     font-weight: 400;
     line-height: 1.6;
     font-family: 'Lato', sans-serif; font-weight: 600; font-size: 18px;
@@ -995,4 +995,149 @@ body {
     .service-card:not(:last-child) {
         margin-bottom: 30px;
     }
+}
+
+
+/* Estilos para la página de Contacto */
+.contact-page .hero {
+    background: url('imgs/fondo-contacto.png') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 40px;
+}
+
+.contact-form-section {
+    background-color: #FAF8F5; /* Mismo color de fondo para toda la sección */
+    padding: 50px 20px; /* Se redujo el espacio entre las secciones */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-form-container {
+    width: 100%;
+    max-width: 900px;
+    text-align: left;
+}
+
+.contact-form-container h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    color: #1E6091;
+    margin-bottom: 25px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form .form-row {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-form .form-group {
+    flex: 1;
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    font-size: 16px;
+    background-color: #FFFFFF;
+    outline: none;
+    transition: 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form textarea {
+    border-radius: 15px;
+    resize: none;
+    height: 200px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px; /* Se redujo el margen superior del botón */
+}
+
+.btn-enviar {
+    background-color: #1E3A5F;
+    color: white;
+    font-size: 18px;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-enviar:hover {
+    background-color: #162A4D;
+    transform: scale(1.05);
+}
+
+/* Estilos para la sección del separador */
+.contact-separator {
+    width: 90%;
+    max-width: 900px;
+    height: 1px; /* Grosor reducido */
+    background-color: #B3B3B3;
+    margin: 20px auto; /* Se redujo el espacio vertical del separador */
+    display: block;
+}
+
+/* Estilos para la sección del mapa */
+.map-section {
+    text-align: center;
+    padding: 50px 20px; /* Se redujo el espacio entre el mapa y el separador */
+    background: #FAF8F5; /* Se mantiene uniforme con el formulario */
+}
+
+.map-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    color: #1E6091;
+    margin-bottom: 20px;
+}
+
+.map-container {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    background: white;
+    padding: 15px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 12px;
 }
