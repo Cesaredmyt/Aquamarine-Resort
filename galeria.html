@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería - Aquamarine Resort</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <style>
+      .gallery-page .hero {
+        background: linear-gradient(to bottom, rgba(30, 96, 145, 0.85), rgba(64, 143, 166, 0.8)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+        height: 45vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        padding-top: 160px;
+      }
+      .hero-text-container {
+        max-width: 800px;
+        padding: 0 20px;
+      }
+      .hero-text {
+        font-size: 48px;
+        font-weight: 700;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 10px;
+      }
+      .hero-description {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.6;
+        font-family: 'Montserrat', sans-serif;
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .gallery-section {
+        background-color: #faf8f5;
+        padding: 100px 20px;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .gallery-title {
+        font-size: 36px;
+        color: #1e6091;
+        margin-bottom: 10px;
+      }
+      .gallery-subtitle {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 50px;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 30px;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+      .gallery-item {
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        height: 280px;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.05);
+        filter: brightness(80%);
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background: white;
+        padding: 30px;
+        max-width: 600px;
+        border-radius: 10px;
+        text-align: left;
+        font-family: 'Lato', sans-serif;
+      }
+      .modal-content h3 {
+        color: #1e6091;
+        margin-top: 0;
+      }
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body class="gallery-page">
+    <header class="hero">
+        <nav class="navbar">
+          <div class="nav-container">
+            <ul class="nav-links left">
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
+              <li><a href="galeria.html" class="active">Galería</a></li>
+            </ul>
+            <div class="logo">
+              <img src="imgs/logo.png" alt="Aquamarine Resort" />
+            </div>
+            <ul class="nav-links right">
+              <li><a href="habitaciones.html">Habitaciones</a></li>
+              <li><a href="servicios.html">Servicios</a></li>
+              <li><a href="contactanos.html">Contáctanos</a></li>
+            </ul>
+          </div>
+        </nav>
+        <div class="hero-text-container" style="margin-left: 43%; text-align: left;">
+          <h1 class="hero-text">Galería</h1>
+          <p class="hero-description" style="text-align: center; margin-left: -60%">
+            Descubre la belleza de nuestro resort frente al mar en Ixtapa Zihuatanejo.
+          </p>
+        </div>
+      </header>
+      
+      <section class="gallery-section">
+        <h2 class="gallery-title" style="text-align: left; margin-left: 40%">Nuestros espacios</h2>
+        <p class="gallery-subtitle" style="text-align: center; margin-left: -1%">
+          Un vistazo a lo que te espera en Aquamarine Resort
+        </p>
+      
+        <div class="gallery-grid" style="max-width: 1400px;">
+          <div class="gallery-item" style="height: 360px" onclick="openModal('Vista al atardecer', 'Relájate con las mejores vistas del océano Pacífico desde nuestras terrazas privadas.')">
+            <img src="imgs/atardecer.jpg" alt="Atardecer en la playa" />
+          </div>
+          <div class="gallery-item" style="height: 360px" onclick="openModal('Spa & Wellness', 'Disfruta de tratamientos exclusivos y relajantes en nuestro spa de clase mundial.')">
+            <img src="imgs/spadelujo.jpg" alt="Spa de lujo" />
+          </div>
+          <div class="gallery-item" style="height: 360px" onclick="openModal('Restaurante gourmet', 'Una experiencia culinaria junto al mar con menús diseñados por chefs internacionales.')">
+            <img src="imgs/restaurante.webp" alt="Restaurante gourmet" />
+          </div>
+          <div class="gallery-item" style="height: 360px" onclick="openModal('Alberca principal', 'Sumérgete en nuestras piscinas con vista al horizonte y servicio personalizado.')">
+            <img src="imgs/alberca.jpg" alt="Alberca con vista" />
+          </div>
+          <div class="gallery-item" style="height: 360px" onclick="openModal('Suite de lujo', 'Confort y elegancia frente al mar, ideal para tus vacaciones soñadas.')">
+            <img src="imgs/paradisus.jpg" alt="Suite de lujo" />
+          </div>
+          <div class="gallery-item" style="height: 360px" onclick="openModal('Vista aérea del resort', 'Contempla la magnitud de nuestro resort desde las alturas.')">
+            <img src="imgs/aerea.jpeg" alt="Vista aérea" />
+          </div>
+          <div class="gallery-item" style="height: 360px" onclick="openModal('Bar en la playa', 'Disfruta de cocteles tropicales con los pies en la arena.')">
+            <img src="imgs/bar.webp" alt="Bar de playa" />
+          </div>
+          <div class="gallery-item" style="height: 360px" onclick="openModal('Eventos frente al mar', 'Celebra bodas o cenas románticas en la arena con vista al mar.')">
+            <img src="imgs/boda.webp" alt="Boda o evento en la playa" />
+          </div>
+          <div class="gallery-item" style="height: 360px" onclick="openModal('Actividades acuáticas', 'Disfruta del mar con deportes acuáticos y aventuras para toda la familia.')">
+            <img src="imgs/acuaticas.webp" alt="Actividades acuáticas" />
+          </div>
+        </div>
+      </section>
+      
+
+    <div class="modal" id="galleryModal">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <div class="modal-content">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-about">
+          <h3 class="footer-title">Aquamarine Resort</h3>
+          <p class="footer-description">
+            Un refugio de lujo frente al mar. Disfruta de nuestra hospitalidad,
+            vistas espectaculares y experiencias inolvidables.
+          </p>
+          <p class="footer-rights">
+            © Aquamarine Resort 2025. Derechos reservados
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-subtitle">Servicios</h4>
+          <ul>
+            <li><a href="#">Spa y Wellness</a></li>
+            <li><a href="#">Piscinas privadas</a></li>
+            <li><a href="#">Restaurantes Gourmet</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-subtitle">Eventos</h4>
+          <ul>
+            <li><a href="#">Bodas frente al mar</a></li>
+            <li><a href="#">Conferencias y reuniones</a></li>
+            <li><a href="#">Experiencias Exclusivas</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4 class="footer-subtitle">Encuéntranos en:</h4>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function openModal(title, description) {
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalDescription').innerText = description;
+        document.getElementById('galleryModal').style.display = 'flex';
+      }
+      function closeModal() {
+        document.getElementById('galleryModal').style.display = 'none';
+      }
+    </script>
+  </body>
+</html>

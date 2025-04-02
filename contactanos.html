@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -21,13 +22,13 @@
           <ul class="nav-links left">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
-            <li><a href="#">Galería</a></li>
+            <li><a href="galeria.html">Galería</a></li>
           </ul>
           <div class="logo">
             <img src="imgs/logo.png" alt="Aquamarine Resort" />
           </div>
           <ul class="nav-links right">
-            <li><a href="#">Habitaciones</a></li>
+            <li><a href="habitaciones.html">Habitaciones</a></li>
             <li><a href="servicios.html">Servicios</a></li>
             <li><a href="contactanos.html" class="active">Contáctanos</a></li>
           </ul>
@@ -44,13 +45,14 @@
 
     <section class="contact-form-section">
       <div class="contact-form-container">
-        <form action="#" class="contact-form">
+        <form action="procesar_contacto.php" method="POST" class="contact-form">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Nombre Completo</label>
               <input
                 type="text"
                 id="name"
+                name="name"
                 placeholder="Ej. Enrique Martinez"
                 required
               />
@@ -60,6 +62,7 @@
               <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder="kiketinez@gmail.com"
                 required
               />
@@ -69,6 +72,7 @@
             <label for="message">Mensaje</label>
             <textarea
               id="message"
+              name="message"
               placeholder="Escribe tu mensaje aquí"
               rows="5"
               required
