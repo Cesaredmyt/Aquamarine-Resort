@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -45,7 +44,7 @@
 
     <section class="contact-form-section">
       <div class="contact-form-container">
-        <form action="procesar_contacto.php" method="POST" class="contact-form">
+        <form id="form-contacto" class="contact-form">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Nombre Completo</label>
@@ -54,17 +53,15 @@
                 id="name"
                 name="name"
                 placeholder="Ej. Enrique Martinez"
-                required
               />
             </div>
             <div class="form-group">
               <label for="email">Email</label>
               <input
-                type="email"
+                type="text"
                 id="email"
                 name="email"
                 placeholder="kiketinez@gmail.com"
-                required
               />
             </div>
           </div>
@@ -75,7 +72,6 @@
               name="message"
               placeholder="Escribe tu mensaje aquí"
               rows="5"
-              required
             ></textarea>
           </div>
           <div class="btn-container">
@@ -140,5 +136,109 @@
         </div>
       </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("form-contacto");
+
+        if (form) {
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const nombre = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const mensaje = document.getElementById("message").value.trim();
+
+            const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+            if (!nombre || !email || !mensaje) {
+              Swal.fire({
+                icon: "warning",
+                title: "Campos incompletos",
+                html: `<p style="font-family: 'Lato', sans-serif; font-size: 15px;">
+                     Por favor completa <strong>nombre</strong>, <strong>correo electrónico</strong> y <strong>mensaje</strong>.
+                   </p>`,
+                confirmButtonColor: "#c8a97e",
+                customClass: { popup: "swal-reserva" },
+              });
+              return;
+            }
+
+            if (!emailValido) {
+              Swal.fire({
+                icon: "error",
+                title: "Correo inválido",
+                html: `<p style="font-family: 'Lato', sans-serif; font-size: 15px;">
+             Asegúrate de ingresar un correo electrónico válido, como <strong>ejemplo@correo.com</strong>.
+           </p>`,
+                confirmButtonColor: "#c8a97e",
+                customClass: { popup: "swal-reserva" },
+                didClose: () => {
+                  // ✅ Enfoca el campo email cuando se cierre la alerta
+                  document.getElementById("email").focus();
+                },
+              });
+              return;
+            }
+
+            // ✅ Mostrar loader antes de enviar
+            Swal.fire({
+              title: "Enviando mensaje...",
+              html: `<p style="font-family: 'Lato', sans-serif;">Por favor espera un momento.</p>`,
+              allowOutsideClick: false,
+              showConfirmButton: false,
+              willOpen: () => {
+                Swal.showLoading();
+              },
+            });
+
+            // ✅ Enviar datos a PHP
+            fetch("procesar_contacto.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ nombre, email, mensaje }),
+            })
+              .then((res) => res.json())
+              .then((response) => {
+                if (response.success) {
+                  Swal.fire({
+                    icon: "success",
+                    title: "¡Mensaje enviado!",
+                    html: `<p style="font-family: 'Lato', sans-serif; font-size: 15px;">
+                 Gracias por contactarnos, te responderemos lo antes posible.
+               </p>`,
+                    confirmButtonColor: "#c8a97e",
+                    customClass: { popup: "swal-reserva" },
+                  });
+                  form.reset();
+                } else {
+                  Swal.fire("Error", response.message, "error");
+                }
+              })
+              .catch(() => {
+                Swal.fire(
+                  "Error",
+                  "No se pudo conectar con el servidor.",
+                  "error"
+                );
+              });
+          });
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const navContainer = document.querySelector(".nav-container");
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 30) {
+            navContainer.classList.add("scrolled");
+          } else {
+            navContainer.classList.remove("scrolled");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

@@ -1,22 +1,20 @@
 /* Importación de fuentes */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Poppins:wght@300;400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Belleza&family=Lato:wght@300;400;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Poppins:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Belleza&family=Lato:wght@300;400;700&display=swap");
 
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #FAF8F5;
+    font-family: "Poppins", sans-serif;
+    background-color: #faf8f5;
 }
 
 .home-page .hero {
-    background: url('imgs/fondo-home.png') no-repeat center center/cover;
+    background: url("imgs/fondo-home.png") no-repeat center center/cover;
 }
 
 .about-page .hero {
-    background: url('imgs/fondo-about.png') no-repeat center center/cover;
+    background: url("imgs/fondo-about.png") no-repeat center center/cover;
 }
-
 
 /* Hero Section */
 .hero {
@@ -29,7 +27,8 @@ body {
     text-align: center;
 }
 .rooms-hero {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent), url('imgs/aerea.jpeg') no-repeat center center/cover;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent),
+        url("imgs/aerea.jpeg") no-repeat center center/cover;
     height: 50vh; /* Más compacto */
     display: flex;
     flex-direction: column;
@@ -38,69 +37,69 @@ body {
     text-align: center;
     color: white;
     padding: 40px;
-  }
-  
-  .rooms-hero .hero-text {
+}
+
+.rooms-hero .hero-text {
     font-size: 48px;
     font-weight: 700;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  }
-  
-  .rooms-hero .hero-description {
+}
+
+.rooms-hero .hero-description {
     font-size: 18px;
     font-weight: 300;
     max-width: 700px;
     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
     color: rgba(255, 255, 255, 0.95);
-  }
+}
 
-  .habitaciones-section {
+.habitaciones-section {
     padding: 80px 20px;
     background-color: #faf8f5;
-  }
-  
-  .habitaciones-container {
+}
+
+.habitaciones-container {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
     gap: 60px;
-  }
-  
-  .habitacion {
+}
+
+.habitacion {
     display: flex;
     gap: 40px;
     flex-wrap: wrap;
     align-items: center;
-  }
-  
-  .habitacion:nth-child(even) {
+}
+
+.habitacion:nth-child(even) {
     flex-wrap: wrap-reverse;
-  }
-  
-  .habitacion img {
+}
+
+.habitacion img {
     flex: 1;
     max-width: 500px;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .habitacion div {
+}
+
+.habitacion div {
     flex: 1;
-  }
-  
-  .habitacion h2 {
+}
+
+.habitacion h2 {
     color: #1e6091;
     font-size: 24px;
     margin-bottom: 10px;
-  }
-  
-  .habitacion p {
+}
+
+.habitacion p {
     font-size: 16px;
     color: #444;
     margin-bottom: 10px;
-  }
-  
-  .habitacion .btn-reservar {
+}
+
+.habitacion .btn-reservar {
     background-color: #c9a474;
     color: white;
     padding: 10px 25px;
@@ -108,36 +107,46 @@ body {
     text-decoration: none;
     font-weight: 600;
     transition: background 0.3s;
-  }
-  
-  .habitacion .btn-reservar:hover {
+}
+
+.habitacion .btn-reservar:hover {
     background-color: #a3815a;
-  }
-  
-  
+}
 
 /* Navbar */
 .navbar {
-    position: absolute;
-    top: 80px; /* Ajuste para mejor alineación */
+    position: fixed;
+    top: 80px; /* Se queda donde estaba antes */
     width: 100%;
     display: flex;
     justify-content: center;
-    z-index: 10;
+    z-index: 1000;
+    background: transparent;
+    pointer-events: none; /* Para que no bloquee clics fuera */
 }
 
 /* Ajuste del Navbar */
 .nav-container {
     background: white;
-    padding: 15px 80px; /* Mantener margen equilibrado */
+    padding: 15px 80px;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 75%;
-    max-width: 1000px; /* Aumentado para mejorar distribución */
+    max-width: 1000px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     position: relative;
+    pointer-events: auto; /* Rehabilita los clics solo en el contenido */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.nav-container.scrolled {
+    transform: translateY(20px) scale(1.03);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* Ajustar las secciones del navbar */
@@ -150,9 +159,6 @@ body {
 }
 
 /* Ajustar las secciones del navbar */
-/* Ajuste de separación de los enlaces del navbar */
-/* Ajuste preciso de los enlaces del navbar */
-/* Ajuste preciso de los enlaces del navbar */
 .nav-links.left {
     flex: 1;
     text-align: right;
@@ -174,9 +180,6 @@ body {
     margin-left: 50px; /* "Habitaciones" mantiene la separación */
 }
 
-
-
-
 /* Ajuste del Logo */
 .logo {
     position: absolute;
@@ -184,16 +187,17 @@ body {
     left: 48%;
     transform: translateX(-50%);
     z-index: 9;
+    transition: transform 0.4s ease;
+}
+
+.nav-container.scrolled ~ .logo img {
+    transform: scale(1.1);
 }
 
 .logo img {
     height: 120px;
     display: block;
 }
-
-
-
-
 
 /* Estilo de los enlaces */
 .nav-links li a {
@@ -205,16 +209,14 @@ body {
 
 /* Página activa con subrayado */
 .nav-links li a.active {
-    color: #1E6091;
+    color: #1e6091;
     font-weight: 600;
     text-decoration: underline;
 }
 
-
-
 /* Estilo del texto */
 .hero-text {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: 50px; /* Ajuste exacto de tamaño */
     font-style: italic;
     font-weight: 400;
@@ -223,26 +225,16 @@ body {
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil para resaltar */
 }
 
-
-
-
-
-
-
-
-
-/* Fuente Lato solo en la sección de reservaciones */
 .reservation-section {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 35px 0;
-    background-color: #FAF8F5;
+    background-color: #faf8f5;
 }
 
-/* Contenedor de la reserva */
 .reservation-container {
     display: flex;
     align-items: center;
@@ -253,76 +245,79 @@ body {
     gap: 50px;
 }
 
-/* Estilos de cada bloque de reserva */
 .reservation-item {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-/* Contenedor del texto al lado del icono */
 .reservation-text {
     display: flex;
     flex-direction: column;
     gap: 3px;
 }
 
-/* Iconos alineados a la izquierda */
 .reservation-item i {
     font-size: 16px;
-    color: #C8A97E;
+    color: #c8a97e;
 }
 
-/* Títulos corregidos con fuente y tamaño exactos */
 .reservation-title {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 13px;
     font-weight: 400;
     color: #525252;
-    line-height: 125%;
     margin: 0;
 }
 
-/* Fechas corregidas con fuente, tamaño y color exactos */
 .reservation-date {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: #000000;
-    line-height: 125%;
+    cursor: pointer; /* 🔥 Para que se vea interactivo */
+    transition: color 0.2s ease; /* Suave al pasar el mouse */
 }
 
 /* Línea divisoria */
 .divider {
     width: 1px;
     height: 30px;
-    background-color: #DDC8A3;
-    margin: 0 25px;
+    background-color: #ddc8a3;
 }
 
 /* Botón Reservar */
 .btn-reservar {
-    background-color: #C8A97E;
+    background-color: #c8a97e;
     color: white;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    padding: 12px 24px;
     border: none;
-    padding: 10px 25px;
-    border-radius: 25px;
-    font-size: 14px;
+    border-radius: 999px;
     cursor: pointer;
-    transition: 0.3s ease;
-    font-weight: 700;
+    font-size: 16px;
     display: flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: 'Lato', sans-serif;
-    align-self: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-reservar:hover {
-    background-color: #A07D54;
+    background-color: #a07d54; /* dorado más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
+.btn-reservar:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-date:hover {
+    color: #c8a97e; /* Color dorado al pasar el mouse */
+}
 /* Responsive */
 @media (max-width: 768px) {
     .reservation-container {
@@ -341,15 +336,72 @@ body {
     }
 }
 
+.swal2-title {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    color: #1e1e1e;
+}
+
+/* ✅ Estilo del contenedor del modal (SweetAlert2 popup) */
+.swal-reserva {
+    max-width: 500px;
+    width: 100%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 430px; /* 🔥 altura adicional */
+}
+
+.swal2-input {
+    font-family: "Lato", sans-serif;
+    font-size: 15px;
+    padding: 10px 14px;
+    width: 96% !important;
+    max-width: 96% !important;
+    box-sizing: border-box;
+    border-radius: 10px !important;
+    margin-top: 16px; /* 🔥 Aumentamos separación entre campos */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swal2-actions {
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* 🔧 Reducido de 10px a 8px */
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* ✅ Container global de SweetAlert2 sin scroll horizontal */
+.swal2-container {
+    overflow-x: hidden !important;
+}
+
+.swal2-confirm {
+    background-color: #c8a97e !important;
+    border: none !important;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+}
+
+.swal2-cancel {
+    font-family: "Lato", sans-serif;
+}
+
 /* Sección de eventos */
 .events-section {
     text-align: center;
-    background: linear-gradient(to bottom, #1E6091, #FAF8F5 300px); /* Degradado más pequeño */
+    background: linear-gradient(to bottom, #1e6091, #faf8f5 300px); /* Degradado más pequeño */
     padding: 80px 20px;
 }
 
 .events-title {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: 42px;
     font-weight: 600;
     color: white;
@@ -357,10 +409,10 @@ body {
 }
 
 .events-subtitle {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 20px;
     font-weight: 300;
-    color: #F1ECE6;
+    color: #f1ece6;
     margin-bottom: 80px; /* Aumentamos la separación */
 }
 
@@ -370,7 +422,6 @@ body {
     align-items: center;
     gap: 100px; /* Aumentamos el espacio entre los eventos */
 }
-
 
 .event-card {
     display: flex;
@@ -402,9 +453,9 @@ body {
 }
 
 .event-location {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 14px;
-    color: #1E6091;
+    color: #1e6091;
     font-weight: 400;
     margin-bottom: 5px;
 }
@@ -415,7 +466,7 @@ body {
 }
 
 .event-name {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: 26px;
     font-weight: 600;
     color: #000;
@@ -423,7 +474,7 @@ body {
 }
 
 .event-description {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: 300;
     color: #525252;
@@ -433,7 +484,7 @@ body {
 .event-date {
     font-size: 16px;
     font-weight: 400;
-    color: #1E6091;
+    color: #1e6091;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -441,12 +492,12 @@ body {
 }
 
 .event-date i {
-    color: #1E6091;
+    color: #1e6091;
 }
 
 /* Botón */
 .event-button {
-    background-color: #C8A97E;
+    background-color: #c8a97e;
     color: white;
     font-size: 16px;
     padding: 10px 25px;
@@ -458,7 +509,7 @@ body {
 }
 
 .event-button:hover {
-    background-color: #A07D54;
+    background-color: #a07d54;
     transform: scale(1.05);
 }
 
@@ -470,7 +521,8 @@ body {
         text-align: center;
     }
 
-    .event-image, .event-info {
+    .event-image,
+    .event-info {
         width: 100%;
     }
 
@@ -484,7 +536,7 @@ body {
     position: relative;
     width: 100%;
     height: 250px; /* Ajustar la altura según el diseño */
-    background: url('imgs/sunset-bg.JPG') no-repeat center center/cover;
+    background: url("imgs/sunset-bg.JPG") no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -501,7 +553,7 @@ body {
 
 /* Título */
 .sunset-title {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: 28px;
     font-weight: 600;
 }
@@ -509,7 +561,7 @@ body {
 /* Botón */
 .sunset-button {
     background-color: white;
-    color: #1E6091;
+    color: #1e6091;
     font-size: 16px;
     font-weight: 600;
     padding: 10px 25px;
@@ -520,20 +572,20 @@ body {
 }
 
 .sunset-button:hover {
-    background-color: #E0E0E0;
+    background-color: #e0e0e0;
     transform: scale(1.05);
 }
 
 /* Sección de Habitaciones */
 .rooms-section {
     text-align: center;
-    background-color: #FAF8F5;
+    background-color: #faf8f5;
     padding: 80px 20px;
-    font-family: 'Montserrat', sans-serif; /* Aplicamos la fuente Montserrat */
+    font-family: "Montserrat", sans-serif; /* Aplicamos la fuente Montserrat */
 }
 
 .rooms-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 36px;
     font-weight: 700;
     color: #000;
@@ -541,7 +593,7 @@ body {
 }
 
 .rooms-subtitle {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 18px;
     font-weight: 300;
     color: #525252;
@@ -567,6 +619,16 @@ body {
     width: 85%;
 }
 
+.room-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.room-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.1);
+}
+
 /* Tarjeta de habitación */
 .room-card {
     background: white;
@@ -575,7 +637,7 @@ body {
     text-align: left;
     width: 300px;
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: 'Montserrat', sans-serif; /* Aplicamos la fuente a las tarjetas */
+    font-family: "Montserrat", sans-serif; /* Aplicamos la fuente a las tarjetas */
 }
 
 .room-image {
@@ -595,7 +657,7 @@ body {
     top: 10px;
     right: 10px;
     background: white;
-    color: #1E6091;
+    color: #1e6091;
     font-size: 14px;
     font-weight: 600;
     padding: 5px 10px;
@@ -606,7 +668,7 @@ body {
 }
 
 .room-rating i {
-    color: #FFD700;
+    color: #ffd700;
 }
 
 /* Información de la habitación */
@@ -625,10 +687,10 @@ body {
 }
 
 .room-price {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400; /* Regular */
     font-size: 28px; /* Tamaño exacto */
-    color: #0077B6; /* Azul llamativo */
+    color: #0077b6; /* Azul llamativo */
 }
 
 .room-price span {
@@ -653,12 +715,12 @@ body {
 }
 
 .carousel-btn i {
-    color: #1E6091;
+    color: #1e6091;
     font-size: 16px;
 }
 
 .carousel-btn:hover {
-    background: #E0E0E0;
+    background: #e0e0e0;
 }
 
 /* Responsive */
@@ -679,12 +741,11 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #408FA6;
+    background-color: #408fa6;
     color: white;
     padding: 50px 20px;
-    font-family: 'Lato', sans-serif; /* Fuente general */
+    font-family: "Lato", sans-serif; /* Fuente general */
 }
-
 
 .footer-container {
     max-width: 1100px;
@@ -703,8 +764,8 @@ body {
 
 /* Nombre del hotel con Belleza */
 .footer-title {
-    font-family: 'Belleza', sans-serif;
-    font-size:  30px;
+    font-family: "Belleza", sans-serif;
+    font-size: 30px;
     font-weight: 400;
     margin-bottom: 10px;
 }
@@ -713,7 +774,7 @@ body {
 .footer-rights,
 .footer-subtitle,
 .footer-links ul li a {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
 }
 
 .footer-description {
@@ -725,7 +786,7 @@ body {
 
 .footer-rights {
     font-size: 12px;
-    color: #D9D9D9;
+    color: #d9d9d9;
 }
 
 /* Sección de Servicios y Eventos */
@@ -758,7 +819,7 @@ body {
 }
 
 .footer-links ul li a:hover {
-    color: #B3E0F2;
+    color: #b3e0f2;
 }
 
 /* Redes Sociales */
@@ -779,7 +840,7 @@ body {
 }
 
 .social-icons a:hover {
-    color: #B3E0F2;
+    color: #b3e0f2;
 }
 
 /* Responsive */
@@ -799,7 +860,7 @@ body {
 .section-divider.spaced {
     width: 70%;
     height: 1px;
-    background-color: #C4C4C4;
+    background-color: #c4c4c4;
     margin: 100px auto 50px auto;
 }
 
@@ -808,7 +869,7 @@ body {
     max-width: 1100px;
     margin: 60px auto;
     padding: 20px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 /* Contenedor de contenido */
@@ -850,12 +911,12 @@ body {
 .highlight-gold {
     font-weight: 600;
     font-style: italic;
-    color: #C8A97E;
+    color: #c8a97e;
 }
 
 .highlight-blue {
     font-weight: 700;
-    color: #1E6091;
+    color: #1e6091;
 }
 
 .highlight-italic {
@@ -882,12 +943,12 @@ body {
 
 /* Ajuste preciso de los fondos detrás de las imágenes */
 .blue-frame .about-image-background {
-    background: #DCE5F2;
+    background: #dce5f2;
     transform: translate(-40px, -40px); /* Más a la izquierda y más arriba */
 }
 
 .gold-frame .about-image-background {
-    background: #F3E1C9;
+    background: #f3e1c9;
     transform: translate(40px, -40px); /* Más a la derecha y más arriba */
 }
 
@@ -933,14 +994,14 @@ body {
 .hero-text {
     font-size: 48px;
     font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 .hero-subtitle {
     font-size: 22px;
     font-weight: 600;
     font-style: italic;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     margin-top: 10px;
 }
 
@@ -948,7 +1009,7 @@ body {
     font-size: 18px;
     font-weight: 300;
     line-height: 1.6;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     margin-top: 15px;
     color: rgba(255, 255, 255, 0.9);
 }
@@ -956,11 +1017,12 @@ body {
 /* Estilos para la página de Servicios siguiendo el diseño del PDF y la imagen proporcionada */
 
 .services-page .hero {
-    background: url('imgs/fondo-servicios.png') no-repeat center center/cover;
+    background: url("imgs/fondo-servicios.png") no-repeat center center/cover;
     height: 70vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; padding-bottom: 0;
+    justify-content: center;
+    padding-bottom: 0;
     align-items: center;
     text-align: center;
     color: white;
@@ -975,7 +1037,7 @@ body {
 }
 
 .services-page .hero-text {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 42px;
     font-weight: 800;
     color: white;
@@ -987,7 +1049,9 @@ body {
     font-size: 50px;
     font-weight: 400;
     line-height: 1.6;
-    font-family: 'Lato', sans-serif; font-weight: 600; font-size: 18px;
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
     margin-top: 50px;
     color: rgba(255, 255, 255, 0.9);
     text-align: center;
@@ -996,12 +1060,12 @@ body {
 /* Sección de Servicios con tarjetas superpuestas */
 .services-section {
     padding: 100px 20px;
-    background-color: #FAF8F5;
+    background-color: #faf8f5;
     text-align: center;
 }
 
 .services-heading {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 36px;
     font-weight: 700;
     color: #111;
@@ -1043,23 +1107,23 @@ body {
     width: 75%;
     max-width: 600px;
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
-    border-top: 8px solid #1E6091;
+    border-top: 8px solid #1e6091;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .service-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 24px;
     font-weight: 700;
-    color: #1E6091;
+    color: #1e6091;
     margin-bottom: 10px;
     text-align: center;
 }
 
 .service-description {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: #444;
@@ -1084,10 +1148,9 @@ body {
     }
 }
 
-
 /* Estilos para la página de Contacto */
 .contact-page .hero {
-    background: url('imgs/fondo-contacto.png') no-repeat center center/cover;
+    background: url("imgs/fondo-contacto.png") no-repeat center center/cover;
     height: 70vh;
     display: flex;
     flex-direction: column;
@@ -1099,7 +1162,7 @@ body {
 }
 
 .contact-form-section {
-    background-color: #FAF8F5; /* Mismo color de fondo para toda la sección */
+    background-color: #faf8f5; /* Mismo color de fondo para toda la sección */
     padding: 50px 20px; /* Se redujo el espacio entre las secciones */
     display: flex;
     justify-content: center;
@@ -1113,9 +1176,9 @@ body {
 }
 
 .contact-form-container h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 26px;
-    color: #1E6091;
+    color: #1e6091;
     margin-bottom: 25px;
 }
 
@@ -1139,20 +1202,21 @@ body {
 
 .contact-form label {
     display: block;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 8px;
     color: #333;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 16px;
     border: 1px solid #ccc;
     border-radius: 30px;
     font-size: 16px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     outline: none;
     transition: 0.3s ease;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -1171,7 +1235,7 @@ body {
 }
 
 .btn-enviar {
-    background-color: #1E3A5F;
+    background-color: #1e3a5f;
     color: white;
     font-size: 18px;
     padding: 15px 50px;
@@ -1184,7 +1248,7 @@ body {
 }
 
 .btn-enviar:hover {
-    background-color: #162A4D;
+    background-color: #162a4d;
     transform: scale(1.05);
 }
 
@@ -1193,7 +1257,7 @@ body {
     width: 90%;
     max-width: 900px;
     height: 1px; /* Grosor reducido */
-    background-color: #B3B3B3;
+    background-color: #b3b3b3;
     margin: 20px auto; /* Se redujo el espacio vertical del separador */
     display: block;
 }
@@ -1202,13 +1266,13 @@ body {
 .map-section {
     text-align: center;
     padding: 50px 20px; /* Se redujo el espacio entre el mapa y el separador */
-    background: #FAF8F5; /* Se mantiene uniforme con el formulario */
+    background: #faf8f5; /* Se mantiene uniforme con el formulario */
 }
 
 .map-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 28px;
-    color: #1E6091;
+    color: #1e6091;
     margin-bottom: 20px;
 }
 

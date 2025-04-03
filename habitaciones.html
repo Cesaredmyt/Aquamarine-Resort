@@ -36,7 +36,8 @@
       <div class="hero-text-container">
         <h1 class="hero-text">Nuestras Habitaciones</h1>
         <p class="hero-description">
-          Experimente el máximo confort y elegancia en nuestras exclusivas suites con vistas al mar.
+          Experimente el máximo confort y elegancia en nuestras exclusivas
+          suites con vistas al mar.
         </p>
       </div>
     </header>
@@ -44,24 +45,32 @@
     <section class="habitaciones-section">
       <div class="habitaciones-container">
         <div class="habitacion">
-          <img src="imgs/suite-oceanica-premier.avif" alt="Suite Oceánica Premier" />
+          <img
+            src="imgs/suite-oceanica-premier.avif"
+            alt="Suite Oceánica Premier"
+          />
           <div>
             <h2>Suite Oceánica Premier</h2>
             <p>$5,200 MXN por noche</p>
             <p>
-              Vistas panorámicas al océano, cama king-size con dosel, terraza privada con jacuzzi y servicio de mayordomo personalizado.
+              Vistas panorámicas al océano, cama king-size con dosel, terraza
+              privada con jacuzzi y servicio de mayordomo personalizado.
             </p>
             <a href="#" class="btn-reservar">Reservar</a>
           </div>
         </div>
 
         <div class="habitacion">
-          <img src="imgs/gran-suite-perla-blanca.jpg" alt="Gran Suite Perla Blanca" />
+          <img
+            src="imgs/gran-suite-perla-blanca.jpg"
+            alt="Gran Suite Perla Blanca"
+          />
           <div>
             <h2>Gran Suite Perla Blanca</h2>
             <p>$6,000 MXN por noche</p>
             <p>
-              Elegancia en cada detalle: baño de mármol, tina de hidromasaje, sala de estar independiente y aromaterapia personalizada incluida.
+              Elegancia en cada detalle: baño de mármol, tina de hidromasaje,
+              sala de estar independiente y aromaterapia personalizada incluida.
             </p>
             <a href="#" class="btn-reservar">Reservar</a>
           </div>
@@ -73,19 +82,24 @@
             <h2>Villa Playa Coral</h2>
             <p>$7,800 MXN por noche</p>
             <p>
-              Villa privada frente al mar con acceso directo a la playa, alberca infinita exclusiva, cocina gourmet y espacio para 4 personas.
+              Villa privada frente al mar con acceso directo a la playa, alberca
+              infinita exclusiva, cocina gourmet y espacio para 4 personas.
             </p>
             <a href="#" class="btn-reservar">Reservar</a>
           </div>
         </div>
 
         <div class="habitacion">
-          <img src="imgs/suite-imperial-aquamarine.jpeg" alt="Suite Imperial Aquamarine" />
+          <img
+            src="imgs/suite-imperial-aquamarine.jpeg"
+            alt="Suite Imperial Aquamarine"
+          />
           <div>
             <h2>Suite Imperial Aquamarine</h2>
             <p>$8,500 MXN por noche</p>
             <p>
-              La experiencia más exclusiva: decoración de lujo, techos altos, balcones dobles, comedor privado y atención 24/7 de concierge.
+              La experiencia más exclusiva: decoración de lujo, techos altos,
+              balcones dobles, comedor privado y atención 24/7 de concierge.
             </p>
             <a href="#" class="btn-reservar">Reservar</a>
           </div>
@@ -98,9 +112,12 @@
         <div class="footer-about">
           <h3 class="footer-title">Aquamarine Resort</h3>
           <p class="footer-description">
-            Un refugio de lujo frente al mar. Disfruta de nuestra hospitalidad, vistas espectaculares y experiencias inolvidables.
+            Un refugio de lujo frente al mar. Disfruta de nuestra hospitalidad,
+            vistas espectaculares y experiencias inolvidables.
           </p>
-          <p class="footer-rights">© Aquamarine Resort 2025. Derechos reservados</p>
+          <p class="footer-rights">
+            © Aquamarine Resort 2025. Derechos reservados
+          </p>
         </div>
         <div class="footer-links">
           <h4 class="footer-subtitle">Servicios</h4>
@@ -127,5 +144,18 @@
         </div>
       </div>
     </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const navContainer = document.querySelector(".nav-container");
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 30) {
+            navContainer.classList.add("scrolled");
+          } else {
+            navContainer.classList.remove("scrolled");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

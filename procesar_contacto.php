@@ -1,24 +1,45 @@
 <?php
-$conexion = new mysqli("localhost", "root", "", "aquamarine");
+header('Content-Type: application/json');
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-// Verifica conexión
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
+// Leer JSON enviado
+$data = json_decode(file_get_contents('php://input'), true);
+
+// Validar campos requeridos
+if (!isset($data['nombre'], $data['email'], $data['mensaje'])) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Faltan campos obligatorios']);
+    exit;
 }
 
-// Captura datos
-$nombre = $_POST["name"];
-$email = $_POST["email"];
-$mensaje = $_POST["message"];
+// Conexión a MySQL
+$host = 'localhost';
+$usuario = 'root';
+$password = '';
+$base_datos = 'aquamarine_resort_db';
+$port = 3307;
 
-// Inserta datos
-$sql = "INSERT INTO mensajes_contacto (nombre, email, mensaje) VALUES ('$nombre', '$email', '$mensaje')";
+$conn = new mysqli($host, $usuario, $password, $base_datos, $port);
 
-if ($conexion->query($sql) === TRUE) {
-    echo "¡Mensaje enviado correctamente!";
+if ($conn->connect_error) {
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => 'Error al conectar a la base de datos']);
+    exit;
+}
+
+// Insertar mensaje
+$stmt = $conn->prepare("INSERT INTO mensajes_contacto (nombre, email, mensaje) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $data['nombre'], $data['email'], $data['mensaje']);
+$success = $stmt->execute();
+
+if ($success) {
+    echo json_encode(['success' => true, 'message' => 'Mensaje guardado']);
 } else {
-    echo "Error: " . $conexion->error;
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => 'Error al guardar el mensaje']);
 }
 
-$conexion->close();
+$stmt->close();
+$conn->close();
 ?>

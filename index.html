@@ -17,6 +17,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+    <!-- Flatpickr CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
   </head>
   <body class="home-page">
     <header class="hero">
@@ -43,13 +48,77 @@
     </header>
 
     <section class="reservation-section">
-      <form action="procesar_reserva.php" method="POST" class="reservation-form" style="width: 100%; max-width: 700px; margin: 0 auto; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; padding: 20px;">
-        <input type="text" name="nombre" placeholder="Tu nombre completo" required style="padding: 10px; border-radius: 20px; border: 1px solid #ccc; width: 100%; max-width: 300px;" />
-        <input type="date" name="entrada" required style="padding: 10px; border-radius: 20px; border: 1px solid #ccc;" />
-        <input type="date" name="salida" required style="padding: 10px; border-radius: 20px; border: 1px solid #ccc;" />
-        <input type="number" name="personas" min="1" max="10" placeholder="Personas" required style="padding: 10px; border-radius: 20px; border: 1px solid #ccc;" />
-        <button type="submit" class="btn-reservar">Reservar ahora</button>
-      </form>
+      <div class="reservation-container">
+        <!-- Fecha entrada -->
+        <div class="reservation-item">
+          <i class="fa-regular fa-calendar"></i>
+          <div class="reservation-text">
+            <p class="reservation-title">Fecha entrada</p>
+            <span
+              class="reservation-date"
+              id="fechaEntrada"
+              onclick="mostrarCalendario('entrada')"
+              >10 Junio 2025</span
+            >
+            <input
+              type="text"
+              id="inputEntrada"
+              class="datepicker"
+              style="display: none"
+            />
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Fecha salida -->
+        <div class="reservation-item">
+          <i class="fa-regular fa-calendar"></i>
+          <div class="reservation-text">
+            <p class="reservation-title">Fecha salida</p>
+            <span
+              class="reservation-date"
+              id="fechaSalida"
+              onclick="mostrarCalendario('salida')"
+              >15 Junio 2025</span
+            >
+            <input
+              type="text"
+              id="inputSalida"
+              class="datepicker"
+              style="display: none"
+            />
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Personas -->
+        <div class="reservation-item">
+          <i class="fa-solid fa-user-group"></i>
+          <div class="reservation-text">
+            <p class="reservation-title">Cuartos para</p>
+            <span
+              class="reservation-date"
+              id="personas"
+              onclick="mostrarSelectorPersonas()"
+              >3 personas</span
+            >
+            <input
+              type="number"
+              id="inputPersonas"
+              min="1"
+              max="10"
+              style="display: none"
+            />
+          </div>
+        </div>
+
+        <!-- Botón -->
+        <button class="btn-reservar" onclick="abrirModalReserva()">
+          <i class="fa-solid fa-magnifying-glass"></i> Reservar ahora
+        </button>
+      </div>
     </section>
 
     <section class="events-section">
@@ -122,7 +191,16 @@
 
         <div class="rooms-container">
           <!-- Tarjeta 1 -->
-          <div class="room-card">
+          <div
+            class="room-card"
+            onclick="verDetallesHabitacion(this)"
+            data-nombre="Suite Óceano Aquamarine"
+            data-baños="2 Baños completos"
+            data-camas="1 Cama King Size"
+            data-personas="Hasta 4 personas"
+            data-precio="$4,800 MXN / noche"
+            data-servicios="Jacuzzi, Terraza privada, Vista al mar, Servicio de mayordomo"
+          >
             <div class="room-image">
               <img src="imgs/suite-oceano.png" alt="Suite Óceano Aquamarine" />
               <span class="room-rating"
@@ -130,12 +208,25 @@
               >
             </div>
             <h3 class="room-name">Suite Óceano Aquamarine</h3>
-            <p class="room-details">2 Baños</p>
+            <div class="room-icons">
+              <span><i class="fa-solid fa-bath"></i> 2</span>
+              <span><i class="fa-solid fa-bed"></i> King Size</span>
+              <span><i class="fa-solid fa-user-group"></i> 4</span>
+            </div>
             <p class="room-price">$4,800 MXN <span>/ noche</span></p>
           </div>
 
           <!-- Tarjeta 2 -->
-          <div class="room-card">
+          <div
+            class="room-card"
+            onclick="verDetallesHabitacion(this)"
+            data-nombre="Suite Perla del Mar"
+            data-baños="1 Baño con jacuzzi"
+            data-camas="1 Cama Queen Size"
+            data-personas="Hasta 3 personas"
+            data-precio="$5,000 MXN / noche"
+            data-servicios="Jacuzzi privado, Aromaterapia, Vista al jardín"
+          >
             <div class="room-image">
               <img src="imgs/suite-perla.png" alt="Suite Perla del Mar" />
               <span class="room-rating"
@@ -143,12 +234,25 @@
               >
             </div>
             <h3 class="room-name">Suite Perla del Mar</h3>
-            <p class="room-details">1 Baño con jacuzzi</p>
+            <div class="room-icons">
+              <span><i class="fa-solid fa-bath"></i> 1</span>
+              <span><i class="fa-solid fa-bed"></i> Queen Size</span>
+              <span><i class="fa-solid fa-user-group"></i> 3</span>
+            </div>
             <p class="room-price">$5,000 MXN <span>/ noche</span></p>
           </div>
 
           <!-- Tarjeta 3 -->
-          <div class="room-card">
+          <div
+            class="room-card"
+            onclick="verDetallesHabitacion(this)"
+            data-nombre="Suite Imperial"
+            data-baños="1 Baño"
+            data-camas="1 Cama Matrimonial"
+            data-personas="2 personas"
+            data-precio="$3,200 MXN / noche"
+            data-servicios="Decoración de lujo, Balcón privado, Vista parcial al mar"
+          >
             <div class="room-image">
               <img src="imgs/suite-imperial.png" alt="Suite Imperial" />
               <span class="room-rating"
@@ -156,7 +260,11 @@
               >
             </div>
             <h3 class="room-name">Suite Imperial</h3>
-            <p class="room-details">Habitación matrimonial</p>
+            <div class="room-icons">
+              <span><i class="fa-solid fa-bath"></i> 1</span>
+              <span><i class="fa-solid fa-bed"></i> Matrimonial</span>
+              <span><i class="fa-solid fa-user-group"></i> 2</span>
+            </div>
             <p class="room-price">$3,200 MXN <span>/ noche</span></p>
           </div>
         </div>
@@ -213,6 +321,21 @@
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const navContainer = document.querySelector('.nav-container');
+    
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 30) {
+            navContainer.classList.add('scrolled');
+          } else {
+            navContainer.classList.remove('scrolled');
+          }
+        });
+      });
+    </script>
   </body>
 </html>
