@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mi perfil - Aquamarine Resort</title>
+  <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    body {
+      background: #faf8f5;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .perfil-container {
+      max-width: 550px;
+      margin: 80px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .perfil-avatar {
+      font-size: 60px;
+      color: #c8a97e;
+      margin-bottom: 10px;
+    }
+    .perfil-titulo {
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #1e6091;
+    }
+    .perfil-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .perfil-form input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+    }
+    .perfil-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .btn-guardar {
+      background-color: #1e6091;
+      color: white;
+    }
+    .btn-volver {
+      background-color: #c8a97e;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="perfil-container">
+      <div class="perfil-avatar">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <div class="perfil-titulo">Mi perfil</div>
+    
+      <form id="perfilForm" class="perfil-form">
+        <div class="perfil-campo">
+          <label for="nombre">Nombre completo:</label>
+          <input type="text" id="nombre" required />
+        </div>
+        <div class="perfil-campo">
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" id="correo" required />
+        </div>
+        <div class="perfil-campo">
+          <label for="telefono">Teléfono:</label>
+          <input type="text" id="telefono" required />
+        </div>
+    
+        <div class="perfil-buttons">
+          <button type="submit" class="btn btn-guardar">Guardar cambios</button>
+          <button type="button" class="btn btn-volver" onclick="regresar()">Regresar</button>
+        </div>
+      </form>
+    </div>
+    
+
+<script>
+    let datosOriginales = {};
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('estado_sesion.php')
+        .then(res => res.json())
+        .then(data => {
+          if (!data.logueado) {
+            window.location.href = "login.html";
+            return;
+          }
+    
+          fetch('perfil.php')
+            .then(res => res.json())
+            .then(usuario => {
+              const nombreCompleto = `${usuario.nombre} ${usuario.ap_paterno} ${usuario.ap_materno}`;
+              document.getElementById('nombre').value = nombreCompleto;
+              document.getElementById('correo').value = usuario.correo;
+              document.getElementById('telefono').value = usuario.telefono;
+    
+              datosOriginales = {
+                nombre: nombreCompleto,
+                correo: usuario.correo,
+                telefono: usuario.telefono
+              };
+            });
+        });
+    });
+    
+    document.getElementById('perfilForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+    
+      const nuevo = {
+        nombre_completo: document.getElementById('nombre').value.trim(),
+        correo: document.getElementById('correo').value.trim(),
+        telefono: document.getElementById('telefono').value.trim()
+      };
+    
+      if (
+        nuevo.nombre_completo === datosOriginales.nombre &&
+        nuevo.correo === datosOriginales.correo &&
+        nuevo.telefono === datosOriginales.telefono
+      ) {
+        Swal.fire({
+          icon: 'info',
+          title: 'Sin cambios',
+          text: 'No hiciste ningún cambio en tu perfil.'
+        });
+        return;
+      }
+    
+      fetch('actualizar_perfil.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(nuevo)
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          Swal.fire({
+            icon: 'success',
+            title: '¡Perfil actualizado!',
+            text: 'Tus datos se han guardado correctamente.',
+            confirmButtonText: 'Volver al inicio'
+          }).then(() => {
+            window.location.href = "index.html";
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error al guardar',
+            text: data.message || 'Ocurrió un problema.'
+          });
+        }
+      });
+    });
+    
+    function regresar() {
+      window.history.back();
+    }
+    </script>
+    
+    
+
+</body>
+</html>

@@ -143,6 +143,156 @@ body {
     background-color: #a3815a;
 }
 
+<<<<<<< HEAD
+=======
+.nav-right-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  #icono-login {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+  }
+  
+  #iconoUsuario {
+    font-size: 22px;
+    color: #c8a97e;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  #iconoUsuario:hover {
+    transform: scale(1.2);
+  }
+  .nav-container {
+    position: relative;
+  }
+  .boton-login {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    background-color: #c8a97e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  .perfil-campo {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .perfil-campo label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .perfil-campo input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    transition: box-shadow 0.2s ease;
+    font-size: 14px;
+  }
+  
+  .perfil-campo input:focus {
+    box-shadow: 0 0 5px rgba(30,96,145,0.3);
+    border-color: #1e6091;
+  }
+    
+  .boton-usuario {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    background-color: #1e6091;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  
+  .usuario-menu {
+    position: absolute;
+    top: 75px;
+    right: 10px;
+    width: 240px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    z-index: 999;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .usuario-avatar {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #c8a97e;
+  }
+  
+  .usuario-info {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  
+  .usuario-info span {
+    font-weight: 600;
+    font-size: 16px;
+    color: #1e1e1e; /* <-- Color oscuro para mejor contraste */
+  }
+  
+  .usuario-info small {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .usuario-opciones {
+    text-align: center;
+  }
+  
+  .usuario-opciones a {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #1e6091;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .usuario-opciones .cerrar-sesion {
+    color: red;
+  }
+  
+
+>>>>>>> 85d3458 (Subida inicial del login y funciones del sistema)
 /* Navbar */
 .navbar {
     position: fixed;

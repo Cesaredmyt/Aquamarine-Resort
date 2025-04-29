@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+<<<<<<< HEAD
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,6 +47,75 @@
     <div
       id="filtros"
       style="
+=======
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habitaciones - Aquamarine Resort</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Font Awesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body class="rooms-page">
+  <header class="hero rooms-hero">
+    <nav class="navbar">
+      <div class="nav-container">
+        <ul class="nav-links left">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+        </ul>
+        <div class="logo">
+          <img src="imgs/logo.png" alt="Aquamarine Resort" />
+        </div>
+        <ul class="nav-links right">
+          <li><a href="habitaciones.html" class="active">Habitaciones</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="contactanos.html">Contáctanos</a></li>
+        </ul>
+        <!-- Menú desplegable del usuario -->
+        <div id="usuario-menu" class="usuario-menu" style="display: none;">
+          <div class="usuario-avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="usuario-info">
+            <span id="usuario-nombre">Nombre Usuario</span><br>
+            <small id="usuario-correo">correo@ejemplo.com</small>
+          </div>
+          <hr>
+          <div class="usuario-opciones">
+            <a href="perfil.html">Mi perfil</a>
+            <a href="#" id="cerrarSesion" class="cerrar-sesion">Cerrar sesión</a>
+          </div>
+        </div>
+
+        <!-- Botón flotante para usuario logueado -->
+        <div id="boton-usuario" class="boton-usuario" style="display: none;">
+          <i class="fa-solid fa-user"></i>
+        </div>
+
+        <!-- Botón flotante para login si no hay sesión -->
+        <div id="boton-login" class="boton-login" style="display: none;" title="Iniciar sesión">
+          <i class="fa-solid fa-user"></i>
+        </div>
+
+      </div>
+    </nav>
+    <div class="hero-text-container">
+      <h1 class="hero-text">Nuestras Habitaciones</h1>
+      <p class="hero-description">
+        Experimente el máximo confort y elegancia en nuestras exclusivas
+        suites con vistas al mar.
+      </p>
+    </div>
+  </header>
+
+  <div id="filtros" style="
+>>>>>>> 85d3458 (Subida inicial del login y funciones del sistema)
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -53,6 +123,7 @@
         gap: 15px;
         margin: 60px auto 20px auto; /* 🔽 Aumentamos separación hacia arriba, reducimos hacia abajo */
         max-width: 1000px;
+<<<<<<< HEAD
       "
     >
       <input
@@ -60,6 +131,10 @@
         id="buscador"
         placeholder="Buscar habitación, servicio, vista..."
         style="
+=======
+      ">
+    <input type="text" id="buscador" placeholder="Buscar habitación, servicio, vista..." style="
+>>>>>>> 85d3458 (Subida inicial del login y funciones del sistema)
           padding: 14px 20px;
           width: 60%;
           max-width: 500px;
@@ -71,11 +146,16 @@
           background-color: #fafafa;
           box-shadow: none;
           transition: all 0.3s ease;
+<<<<<<< HEAD
         "
       />
       <select
         id="filtroCapacidad"
         style="
+=======
+        " />
+    <select id="filtroCapacidad" style="
+>>>>>>> 85d3458 (Subida inicial del login y funciones del sistema)
           padding: 14px 20px;
           border-radius: 30px;
           border: 2px solid #0a2e5c;
@@ -87,6 +167,7 @@
           cursor: pointer;
           box-shadow: none;
           transition: all 0.3s ease;
+<<<<<<< HEAD
         "
       >
         <option value="">Todas las capacidades</option>
@@ -252,6 +333,163 @@
             const camas = habitacion.camas?.trim() || "No disponible";
 
             const html = `
+=======
+        ">
+      <option value="">Todas las capacidades</option>
+      <option value="2">2 personas</option>
+      <option value="4">4 personas</option>
+      <option value="6">6 personas</option>
+    </select>
+  </div>
+
+  <section class="habitaciones-section">
+    <div class="habitaciones-container" id="habitacionesContainer">
+      <!-- Las habitaciones se van a cargar automáticamente aquí -->
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3 class="footer-title">Aquamarine Resort</h3>
+        <p class="footer-description">
+          Un refugio de lujo frente al mar. Disfruta de nuestra hospitalidad,
+          vistas espectaculares y experiencias inolvidables.
+        </p>
+        <p class="footer-rights">
+          © Aquamarine Resort 2025. Derechos reservados
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4 class="footer-subtitle">Servicios</h4>
+        <ul>
+          <li><a href="#">Spa y Wellness</a></li>
+          <li><a href="#">Piscinas privadas</a></li>
+          <li><a href="#">Restaurantes Gourmet</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 class="footer-subtitle">Eventos</h4>
+        <ul>
+          <li><a href="#">Bodas frente al mar</a></li>
+          <li><a href="#">Conferencias y reuniones</a></li>
+          <li><a href="#">Experiencias Exclusivas</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4 class="footer-subtitle">Encuéntranos en:</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const navContainer = document.querySelector(".nav-container");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 30) {
+          navContainer.classList.add("scrolled");
+        } else {
+          navContainer.classList.remove("scrolled");
+        }
+      });
+    });
+  </script>
+  <div id="modal-habitacion" class="modal">
+    <div class="modal-contenido">
+      <button class="modal-cerrar" onclick="cerrarModal()" aria-label="Cerrar ventana">
+        &times;
+      </button>
+
+      <div class="modal-img-container">
+        <img id="modal-img" src="" alt="Imagen habitación" class="modal-img" />
+      </div>
+
+      <h2 id="modal-nombre"></h2>
+      <p id="modal-precio" class="precio"></p>
+      <p id="modal-descripcion" class="descripcion"></p>
+
+      <div class="modal-info">
+        <p>
+          <i class="fa-solid fa-bath"></i> <strong>Baños:</strong>
+          <span id="modal-baños"></span>
+        </p>
+        <p>
+          <i class="fa-solid fa-bed"></i> <strong>Camas:</strong>
+          <span id="modal-camas"></span>
+        </p>
+        <p>
+          <i class="fa-solid fa-user-group"></i> <strong>Capacidad:</strong>
+          <span id="modal-personas"></span> personas
+        </p>
+        <p>
+          <i class="fa-solid fa-people-roof"></i>
+          <strong>Recomendado para:</strong> <span id="modal-tipo"></span>
+        </p>
+        <p>
+          <i class="fa-solid fa-concierge-bell"></i>
+          <strong>Servicios:</strong> <span id="modal-servicios"></span>
+        </p>
+        <p>
+          <i class="fa-solid fa-ruler-combined"></i>
+          <strong>Espacio:</strong> <span id="modal-espacio"></span> m²
+        </p>
+        <p>
+          <i class="fa-solid fa-tv"></i> <strong>Extras:</strong>
+          <span id="modal-extras"></span>
+        </p>
+        <p>
+          <i class="fa-solid fa-mountain-sun"></i> <strong>Vistas:</strong>
+          <span id="modal-vistas"></span>
+        </p>
+      </div>
+
+      <div class="modal-acciones">
+        <a href="#" class="btn-reservar-modal">Reservar ahora</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.getElementById("habitacionesContainer");
+      const buscadorInput = document.getElementById("buscador");
+      const filtroCapacidad = document.getElementById("filtroCapacidad");
+      const paginationContainer = document.createElement("div");
+      paginationContainer.id = "pagination";
+      paginationContainer.style.marginTop = "20px";
+      paginationContainer.style.textAlign = "center";
+
+      let habitacionesData = [];
+      let habitacionesFiltradas = [];
+      let habitacionesPorPagina = 10;
+      let paginaActual = 1;
+
+      function renderHabitaciones() {
+        container.innerHTML = "";
+
+        let inicio = (paginaActual - 1) * habitacionesPorPagina;
+        let fin = inicio + habitacionesPorPagina;
+        let habitacionesPagina = habitacionesFiltradas.slice(inicio, fin);
+
+        habitacionesPagina.forEach((habitacion) => {
+          const espacio = habitacion.espacio?.trim() || "No disponible";
+          const extras = habitacion.extras?.trim() || "No disponible";
+          const vistas = habitacion.vistas?.trim() || "No disponible";
+          const descripcion =
+            habitacion.descripcion_larga?.trim() || "No disponible";
+          const servicios = habitacion.servicios?.trim() || "No disponible";
+          const recomendado =
+            habitacion.recomendado_para?.trim() || "No disponible";
+          const camas = habitacion.camas?.trim() || "No disponible";
+
+          const html = `
+>>>>>>> 85d3458 (Subida inicial del login y funciones del sistema)
         <div class="habitacion" 
           data-nombre="${habitacion.nombre}" 
           data-baños="${habitacion.banos}" 
@@ -285,6 +523,7 @@
           </div>
         </div>
       `;
+<<<<<<< HEAD
             container.innerHTML += html;
           });
 
@@ -405,3 +644,127 @@
     </script>
   </body>
 </html>
+=======
+          container.innerHTML += html;
+        });
+
+        renderPagination();
+      }
+
+      function renderPagination() {
+        paginationContainer.innerHTML = "";
+        const totalPaginas = Math.ceil(
+          habitacionesFiltradas.length / habitacionesPorPagina
+        );
+
+        for (let i = 1; i <= totalPaginas; i++) {
+          const boton = document.createElement("button");
+          boton.textContent = i;
+          boton.style.margin = "0 5px";
+          boton.style.padding = "8px 12px";
+          boton.style.borderRadius = "6px";
+          boton.style.border = "1px solid #ccc";
+          boton.style.background = i === paginaActual ? "#c8a97e" : "#fff";
+          boton.style.color = i === paginaActual ? "#fff" : "#333";
+          boton.style.cursor = "pointer";
+          boton.addEventListener("click", function () {
+            paginaActual = i;
+            renderHabitaciones();
+          });
+
+          paginationContainer.appendChild(boton);
+        }
+
+        if (!container.parentElement.contains(paginationContainer)) {
+          container.parentElement.appendChild(paginationContainer);
+        }
+      }
+
+      function aplicarFiltros() {
+        const textoBusqueda = buscadorInput.value.toLowerCase();
+        const capacidadSeleccionada = filtroCapacidad.value;
+
+        habitacionesFiltradas = habitacionesData.filter((habitacion) => {
+          const textoCompleto = (
+            habitacion.nombre +
+            " " +
+            habitacion.descripcion_larga +
+            " " +
+            habitacion.servicios +
+            " " +
+            habitacion.extras +
+            " " +
+            habitacion.recomendado_para +
+            " " +
+            habitacion.vistas
+          ).toLowerCase();
+
+          const cumpleBusqueda = textoCompleto.includes(textoBusqueda);
+          const cumpleCapacidad = capacidadSeleccionada
+            ? habitacion.capacidad == capacidadSeleccionada
+            : true;
+
+          return cumpleBusqueda && cumpleCapacidad;
+        });
+
+        paginaActual = 1;
+        renderHabitaciones();
+      }
+
+      buscadorInput.addEventListener("input", aplicarFiltros);
+      filtroCapacidad.addEventListener("change", aplicarFiltros);
+
+      fetch("obtener_habitaciones.php")
+        .then((response) => response.json())
+        .then((habitaciones) => {
+          habitacionesData = habitaciones;
+          habitacionesFiltradas = habitaciones;
+          renderHabitaciones();
+        })
+        .catch((error) => {
+          console.error("Error al cargar habitaciones:", error);
+        });
+    });
+
+    // ✨ Función para mostrar detalles en el Modal
+    function mostrarDetallesHabitacion(btn) {
+      const card = btn.closest(".habitacion");
+
+      document.getElementById("modal-nombre").innerText =
+        card.dataset.nombre || "No disponible";
+      document.getElementById("modal-precio").innerText =
+        `$${card.dataset.precio} MXN por noche` || "No disponible";
+      document.getElementById("modal-descripcion").innerText =
+        card.dataset.descripcion || "No disponible";
+      document.getElementById("modal-baños").innerText =
+        card.dataset.baños || "No disponible";
+      document.getElementById("modal-camas").innerText =
+        card.dataset.camas || "No disponible";
+      document.getElementById("modal-personas").innerText =
+        card.dataset.personas || "No disponible";
+      document.getElementById("modal-tipo").innerText =
+        card.dataset.tipo || "No disponible";
+      document.getElementById("modal-servicios").innerText =
+        card.dataset.servicios || "No disponible";
+      document.getElementById("modal-espacio").innerText =
+        card.dataset.espacio || "No disponible";
+      document.getElementById("modal-extras").innerText =
+        card.dataset.extras || "No disponible";
+      document.getElementById("modal-vistas").innerText =
+        card.dataset.vistas || "No disponible";
+      document.getElementById("modal-img").src = card.dataset.img || "";
+
+      document.getElementById("modal-habitacion").style.display = "block";
+    }
+
+    // ✨ Función para cerrar el Modal
+    function cerrarModal() {
+      const modal = document.getElementById("modal-habitacion");
+      modal.style.display = "none";
+    }
+  </script>
+
+</body>
+
+</html>
+>>>>>>> 85d3458 (Subida inicial del login y funciones del sistema)
