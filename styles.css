@@ -143,8 +143,6 @@ body {
     background-color: #a3815a;
 }
 
-<<<<<<< HEAD
-=======
 .nav-right-group {
     display: flex;
     align-items: center;
@@ -292,7 +290,6 @@ body {
   }
   
 
->>>>>>> 85d3458 (Subida inicial del login y funciones del sistema)
 /* Navbar */
 .navbar {
     position: fixed;
