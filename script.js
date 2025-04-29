@@ -49,6 +49,16 @@ function capitalizar(texto) {
     return texto.charAt(0).toUpperCase() + texto.slice(1);
 }
 
+function cerrarModal() {
+    const modal = document.getElementById("modal-habitacion");
+    modal.style.display = "none";
+    document.querySelector(".modal-img-container").classList.remove("zoom-activo");
+}
+
+function ampliarImagen(container) {
+    container.classList.toggle("zoom-activo");
+}
+
 // Modal placeholder (para después)
 function abrirModalReserva() {
     const inputEntrada = document.getElementById("inputEntrada");
