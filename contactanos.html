@@ -1,244 +1,252 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contáctanos - Aquamarine Resort</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-  </head>
-  <body class="contact-page">
-    <header class="hero contact-hero">
-      <nav class="navbar">
-        <div class="nav-container">
-          <ul class="nav-links left">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
-            <li><a href="galeria.html">Galería</a></li>
-          </ul>
-          <div class="logo">
-            <img src="imgs/logo.png" alt="Aquamarine Resort" />
-          </div>
-          <ul class="nav-links right">
-            <li><a href="habitaciones.html">Habitaciones</a></li>
-            <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="contactanos.html" class="active">Contáctanos</a></li>
-          </ul>
-        </div>
-      </nav>
-      <div class="hero-text-container">
-        <h1 class="hero-text">Contáctanos</h1>
-        <p class="hero-description">
-          ¿Tienes dudas o quieres reservar tu estancia con nosotros? Nuestro
-          equipo está listo para ayudarte.
-        </p>
-      </div>
-    </header>
 
-    <section class="contact-form-section">
-      <div class="contact-form-container">
-        <form id="form-contacto" class="contact-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Nombre Completo</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Ej. Enrique Martinez"
-              />
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input
-                type="text"
-                id="email"
-                name="email"
-                placeholder="kiketinez@gmail.com"
-              />
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contáctanos - Aquamarine Resort</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Font Awesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body class="contact-page">
+  <header class="hero contact-hero">
+    <nav class="navbar">
+      <div class="nav-container">
+        <ul class="nav-links left">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+        </ul>
+        <div class="logo">
+          <img src="imgs/logo.png" alt="Aquamarine Resort" />
+        </div>
+        <ul class="nav-links right">
+          <li><a href="habitaciones.html">Habitaciones</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="contactanos.html" class="active">Contáctanos</a></li>
+        </ul>
+        <!-- Menú desplegable del usuario -->
+        <div id="usuario-menu" class="usuario-menu" style="display: none;">
+          <div class="usuario-avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="usuario-info">
+            <span id="usuario-nombre">Nombre Usuario</span><br>
+            <small id="usuario-correo">correo@ejemplo.com</small>
+          </div>
+          <hr>
+          <div class="usuario-opciones">
+            <a href="perfil.html">Mi perfil</a>
+            <a href="#" id="cerrarSesion" class="cerrar-sesion">Cerrar sesión</a>
+          </div>
+        </div>
+
+        <!-- Botón flotante para usuario logueado -->
+        <div id="boton-usuario" class="boton-usuario" style="display: none;">
+          <i class="fa-solid fa-user"></i>
+        </div>
+
+        <!-- Botón flotante para login si no hay sesión -->
+        <div id="boton-login" class="boton-login" style="display: none;" title="Iniciar sesión">
+          <i class="fa-solid fa-user"></i>
+        </div>
+
+      </div>
+
+    </nav>
+    <div class="hero-text-container">
+      <h1 class="hero-text">Contáctanos</h1>
+      <p class="hero-description">
+        ¿Tienes dudas o quieres reservar tu estancia con nosotros? Nuestro
+        equipo está listo para ayudarte.
+      </p>
+    </div>
+  </header>
+
+  <section class="contact-form-section">
+    <div class="contact-form-container">
+      <form id="form-contacto" class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nombre Completo</label>
+            <input type="text" id="name" name="name" placeholder="Ej. Enrique Martinez" />
           </div>
           <div class="form-group">
-            <label for="message">Mensaje</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Escribe tu mensaje aquí"
-              rows="5"
-            ></textarea>
-          </div>
-          <div class="btn-container">
-            <button type="submit" class="btn-enviar">Enviar</button>
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <div class="contact-separator"></div>
-
-    <section class="map-section">
-      <h2 class="map-title">Nuestra Ubicación</h2>
-      <div class="map-container">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.015725247916!2d-105.23894968476562!3d17.6612502899974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8420601c39aef3a9%3A0x1f3e09b94c6aef9!2sIxtapa%20Zihuatanejo%2C%20Gro.!5e0!3m2!1ses!2smx!4v1675347657890!5m2!1ses!2smx"
-          width="100%"
-          height="400"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-about">
-          <h3 class="footer-title">Aquamarine Resort</h3>
-          <p class="footer-description">
-            Un refugio de lujo frente al mar. Disfruta de nuestra hospitalidad,
-            vistas espectaculares y experiencias inolvidables.
-          </p>
-          <p class="footer-rights">
-            © Aquamarine Resort 2025. Derechos reservados
-          </p>
-        </div>
-        <div class="footer-links">
-          <h4 class="footer-subtitle">Servicios</h4>
-          <ul>
-            <li><a href="#">Spa y Wellness</a></li>
-            <li><a href="#">Piscinas privadas</a></li>
-            <li><a href="#">Restaurantes Gourmet</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4 class="footer-subtitle">Eventos</h4>
-          <ul>
-            <li><a href="#">Bodas frente al mar</a></li>
-            <li><a href="#">Conferencias y reuniones</a></li>
-            <li><a href="#">Experiencias Exclusivas</a></li>
-          </ul>
-        </div>
-        <div class="footer-social">
-          <h4 class="footer-subtitle">Encuéntranos en:</h4>
-          <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="kiketinez@gmail.com" />
           </div>
         </div>
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí" rows="5"></textarea>
+        </div>
+        <div class="btn-container">
+          <button type="submit" class="btn-enviar">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div class="contact-separator"></div>
+
+  <section class="map-section">
+    <h2 class="map-title">Nuestra Ubicación</h2>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.015725247916!2d-105.23894968476562!3d17.6612502899974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8420601c39aef3a9%3A0x1f3e09b94c6aef9!2sIxtapa%20Zihuatanejo%2C%20Gro.!5e0!3m2!1ses!2smx!4v1675347657890!5m2!1ses!2smx"
+        width="100%" height="400" style="border: 0" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3 class="footer-title">Aquamarine Resort</h3>
+        <p class="footer-description">
+          Un refugio de lujo frente al mar. Disfruta de nuestra hospitalidad,
+          vistas espectaculares y experiencias inolvidables.
+        </p>
+        <p class="footer-rights">
+          © Aquamarine Resort 2025. Derechos reservados
+        </p>
       </div>
-    </footer>
+      <div class="footer-links">
+        <h4 class="footer-subtitle">Servicios</h4>
+        <ul>
+          <li><a href="#">Spa y Wellness</a></li>
+          <li><a href="#">Piscinas privadas</a></li>
+          <li><a href="#">Restaurantes Gourmet</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 class="footer-subtitle">Eventos</h4>
+        <ul>
+          <li><a href="#">Bodas frente al mar</a></li>
+          <li><a href="#">Conferencias y reuniones</a></li>
+          <li><a href="#">Experiencias Exclusivas</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4 class="footer-subtitle">Encuéntranos en:</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const form = document.getElementById("form-contacto");
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("form-contacto");
 
-        if (form) {
-          form.addEventListener("submit", (e) => {
-            e.preventDefault();
+      if (form) {
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
 
-            const nombre = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const mensaje = document.getElementById("message").value.trim();
+          const nombre = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const mensaje = document.getElementById("message").value.trim();
 
-            const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+          const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-            if (!nombre || !email || !mensaje) {
-              Swal.fire({
-                icon: "warning",
-                title: "Campos incompletos",
-                html: `<p style="font-family: 'Lato', sans-serif; font-size: 15px;">
+          if (!nombre || !email || !mensaje) {
+            Swal.fire({
+              icon: "warning",
+              title: "Campos incompletos",
+              html: `<p style="font-family: 'Lato', sans-serif; font-size: 15px;">
                      Por favor completa <strong>nombre</strong>, <strong>correo electrónico</strong> y <strong>mensaje</strong>.
                    </p>`,
-                confirmButtonColor: "#c8a97e",
-                customClass: { popup: "swal-reserva" },
-              });
-              return;
-            }
+              confirmButtonColor: "#c8a97e",
+              customClass: { popup: "swal-reserva" },
+            });
+            return;
+          }
 
-            if (!emailValido) {
-              Swal.fire({
-                icon: "error",
-                title: "Correo inválido",
-                html: `<p style="font-family: 'Lato', sans-serif; font-size: 15px;">
+          if (!emailValido) {
+            Swal.fire({
+              icon: "error",
+              title: "Correo inválido",
+              html: `<p style="font-family: 'Lato', sans-serif; font-size: 15px;">
              Asegúrate de ingresar un correo electrónico válido, como <strong>ejemplo@correo.com</strong>.
            </p>`,
-                confirmButtonColor: "#c8a97e",
-                customClass: { popup: "swal-reserva" },
-                didClose: () => {
-                  // ✅ Enfoca el campo email cuando se cierre la alerta
-                  document.getElementById("email").focus();
-                },
-              });
-              return;
-            }
-
-            // ✅ Mostrar loader antes de enviar
-            Swal.fire({
-              title: "Enviando mensaje...",
-              html: `<p style="font-family: 'Lato', sans-serif;">Por favor espera un momento.</p>`,
-              allowOutsideClick: false,
-              showConfirmButton: false,
-              willOpen: () => {
-                Swal.showLoading();
+              confirmButtonColor: "#c8a97e",
+              customClass: { popup: "swal-reserva" },
+              didClose: () => {
+                // ✅ Enfoca el campo email cuando se cierre la alerta
+                document.getElementById("email").focus();
               },
             });
+            return;
+          }
 
-            // ✅ Enviar datos a PHP
-            fetch("procesar_contacto.php", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ nombre, email, mensaje }),
-            })
-              .then((res) => res.json())
-              .then((response) => {
-                if (response.success) {
-                  Swal.fire({
-                    icon: "success",
-                    title: "¡Mensaje enviado!",
-                    html: `<p style="font-family: 'Lato', sans-serif; font-size: 15px;">
+          // ✅ Mostrar loader antes de enviar
+          Swal.fire({
+            title: "Enviando mensaje...",
+            html: `<p style="font-family: 'Lato', sans-serif;">Por favor espera un momento.</p>`,
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            willOpen: () => {
+              Swal.showLoading();
+            },
+          });
+
+          // ✅ Enviar datos a PHP
+          fetch("procesar_contacto.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nombre, email, mensaje }),
+          })
+            .then((res) => res.json())
+            .then((response) => {
+              if (response.success) {
+                Swal.fire({
+                  icon: "success",
+                  title: "¡Mensaje enviado!",
+                  html: `<p style="font-family: 'Lato', sans-serif; font-size: 15px;">
                  Gracias por contactarnos, te responderemos lo antes posible.
                </p>`,
-                    confirmButtonColor: "#c8a97e",
-                    customClass: { popup: "swal-reserva" },
-                  });
-                  form.reset();
-                } else {
-                  Swal.fire("Error", response.message, "error");
-                }
-              })
-              .catch(() => {
-                Swal.fire(
-                  "Error",
-                  "No se pudo conectar con el servidor.",
-                  "error"
-                );
-              });
-          });
+                  confirmButtonColor: "#c8a97e",
+                  customClass: { popup: "swal-reserva" },
+                });
+                form.reset();
+              } else {
+                Swal.fire("Error", response.message, "error");
+              }
+            })
+            .catch(() => {
+              Swal.fire(
+                "Error",
+                "No se pudo conectar con el servidor.",
+                "error"
+              );
+            });
+        });
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const navContainer = document.querySelector(".nav-container");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 30) {
+          navContainer.classList.add("scrolled");
+        } else {
+          navContainer.classList.remove("scrolled");
         }
       });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const navContainer = document.querySelector(".nav-container");
+    });
+  </script>
+  <script src="script.js"></script>
 
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > 30) {
-            navContainer.classList.add("scrolled");
-          } else {
-            navContainer.classList.remove("scrolled");
-          }
-        });
-      });
-    </script>
-  </body>
+</body>
+
 </html>

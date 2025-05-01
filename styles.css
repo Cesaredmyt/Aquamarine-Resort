@@ -26,10 +26,12 @@ body {
     align-items: center;
     text-align: center;
 }
+
 .rooms-hero {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent),
         url("imgs/aerea.jpeg") no-repeat center center/cover;
-    height: 50vh; /* Más compacto */
+    height: 50vh;
+    /* Más compacto */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -67,9 +69,36 @@ body {
 
 .habitacion {
     display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.habitacion .imagen-habitacion {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.habitacion .imagen-habitacion img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.imagen-habitacion {
+    transition: transform 0.3s ease; /* suave animación */
+}
+
+.imagen-habitacion:hover {
+    transform: scale(1.05); /* zoom pequeño al pasar el mouse */
 }
 
 .habitacion:nth-child(even) {
@@ -77,10 +106,11 @@ body {
 }
 
 .habitacion img {
-    flex: 1;
-    max-width: 500px;
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
 }
 
 .habitacion div {
@@ -113,19 +143,166 @@ body {
     background-color: #a3815a;
 }
 
+.nav-right-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  #icono-login {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+  }
+  
+  #iconoUsuario {
+    font-size: 22px;
+    color: #c8a97e;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  #iconoUsuario:hover {
+    transform: scale(1.2);
+  }
+  .nav-container {
+    position: relative;
+  }
+  .boton-login {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    background-color: #c8a97e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  .perfil-campo {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .perfil-campo label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .perfil-campo input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    transition: box-shadow 0.2s ease;
+    font-size: 14px;
+  }
+  
+  .perfil-campo input:focus {
+    box-shadow: 0 0 5px rgba(30,96,145,0.3);
+    border-color: #1e6091;
+  }
+    
+  .boton-usuario {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    background-color: #1e6091;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  
+  .usuario-menu {
+    position: absolute;
+    top: 75px;
+    right: 10px;
+    width: 240px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    z-index: 999;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .usuario-avatar {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #c8a97e;
+  }
+  
+  .usuario-info {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  
+  .usuario-info span {
+    font-weight: 600;
+    font-size: 16px;
+    color: #1e1e1e; /* <-- Color oscuro para mejor contraste */
+  }
+  
+  .usuario-info small {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .usuario-opciones {
+    text-align: center;
+  }
+  
+  .usuario-opciones a {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #1e6091;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .usuario-opciones .cerrar-sesion {
+    color: red;
+  }
+  
+
 /* Navbar */
 .navbar {
     position: fixed;
-    top: 80px; /* Se queda donde estaba antes */
+    top: 80px;
     width: 100%;
     display: flex;
     justify-content: center;
     z-index: 1000;
     background: transparent;
-    pointer-events: none; /* Para que no bloquee clics fuera */
+    pointer-events: none;
 }
 
-/* Ajuste del Navbar */
+/* Contenedor del navbar */
 .nav-container {
     background: white;
     padding: 15px 80px;
@@ -137,7 +314,7 @@ body {
     max-width: 1000px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    pointer-events: auto; /* Rehabilita los clics solo en el contenido */
+    pointer-events: auto;
     transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease, backdrop-filter 0.4s ease;
 }
 
@@ -149,35 +326,85 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Ajustar las secciones del navbar */
+/* Ajustar secciones del navbar */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 45px; /* Ajuste de separación uniforme */
+    align-items: center;
+    gap: 45px;
     margin: 0;
     padding: 0;
 }
 
-/* Ajustar las secciones del navbar */
+.nav-links li {
+    display: inline-flex;
+}
+
+/* Separación entre lados */
 .nav-links.left {
     flex: 1;
-    text-align: right;
-    padding-right: 90px; /* Se reduce un poco para acercar "Galería" */
+    justify-content: flex-end;
+    padding-right: 90px;
 }
 
 .nav-links.right {
     flex: 1;
-    text-align: left;
-    padding-left: 120px; /* Se mantiene la separación del lado derecho */
+    justify-content: flex-start;
+    padding-left: 120px;
 }
 
-/* Ajuste de separación específica */
 .nav-links.left li:last-child {
-    margin-right: 5px; /* "Galería" más cerca del logo */
+    margin-right: 5px;
 }
 
 .nav-links.right li:first-child {
-    margin-left: 50px; /* "Habitaciones" mantiene la separación */
+    margin-left: 50px;
+}
+
+/* Estilo base de los enlaces */
+.nav-links a {
+    position: relative;
+    padding: 8px 4px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover con línea */
+.nav-links a:hover {
+    color: #1e6091;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #1e6091;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Página activa resaltada */
+.nav-links a.active {
+    font-weight: bold;
+    color: #1e6091;
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #1e6091;
 }
 
 /* Ajuste del Logo */
@@ -217,12 +444,14 @@ body {
 /* Estilo del texto */
 .hero-text {
     font-family: "Playfair Display", serif;
-    font-size: 50px; /* Ajuste exacto de tamaño */
+    font-size: 50px;
+    /* Ajuste exacto de tamaño */
     font-style: italic;
     font-weight: 400;
     color: white;
     line-height: 125%;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil para resaltar */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    /* Sombra sutil para resaltar */
 }
 
 .reservation-section {
@@ -275,8 +504,10 @@ body {
     font-size: 16px;
     font-weight: 400;
     color: #000000;
-    cursor: pointer; /* 🔥 Para que se vea interactivo */
-    transition: color 0.2s ease; /* Suave al pasar el mouse */
+    cursor: pointer;
+    /* 🔥 Para que se vea interactivo */
+    transition: color 0.2s ease;
+    /* Suave al pasar el mouse */
 }
 
 /* Línea divisoria */
@@ -302,10 +533,12 @@ body {
     gap: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    width: auto;
 }
 
 .btn-reservar:hover {
-    background-color: #a07d54; /* dorado más oscuro */
+    background-color: #a07d54;
+    /* dorado más oscuro */
     transform: translateY(-2px);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
@@ -316,8 +549,10 @@ body {
 }
 
 .reservation-date:hover {
-    color: #c8a97e; /* Color dorado al pasar el mouse */
+    color: #c8a97e;
+    /* Color dorado al pasar el mouse */
 }
+
 /* Responsive */
 @media (max-width: 768px) {
     .reservation-container {
@@ -350,7 +585,8 @@ body {
     box-sizing: border-box;
     border-radius: 20px;
     overflow: hidden;
-    min-height: 430px; /* 🔥 altura adicional */
+    min-height: 430px;
+    /* 🔥 altura adicional */
 }
 
 .swal2-input {
@@ -361,7 +597,8 @@ body {
     max-width: 96% !important;
     box-sizing: border-box;
     border-radius: 10px !important;
-    margin-top: 16px; /* 🔥 Aumentamos separación entre campos */
+    margin-top: 16px;
+    /* 🔥 Aumentamos separación entre campos */
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -370,7 +607,8 @@ body {
 .swal2-actions {
     display: flex;
     justify-content: center;
-    gap: 8px; /* 🔧 Reducido de 10px a 8px */
+    gap: 8px;
+    /* 🔧 Reducido de 10px a 8px */
     flex-wrap: wrap;
     max-width: 100%;
     overflow: hidden;
@@ -396,7 +634,8 @@ body {
 /* Sección de eventos */
 .events-section {
     text-align: center;
-    background: linear-gradient(to bottom, #1e6091, #faf8f5 300px); /* Degradado más pequeño */
+    background: linear-gradient(to bottom, #1e6091, #faf8f5 300px);
+    /* Degradado más pequeño */
     padding: 80px 20px;
 }
 
@@ -413,14 +652,16 @@ body {
     font-size: 20px;
     font-weight: 300;
     color: #f1ece6;
-    margin-bottom: 80px; /* Aumentamos la separación */
+    margin-bottom: 80px;
+    /* Aumentamos la separación */
 }
 
 .events-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 100px; /* Aumentamos el espacio entre los eventos */
+    gap: 100px;
+    /* Aumentamos el espacio entre los eventos */
 }
 
 .event-card {
@@ -535,7 +776,8 @@ body {
 .sunset-section {
     position: relative;
     width: 100%;
-    height: 250px; /* Ajustar la altura según el diseño */
+    height: 250px;
+    /* Ajustar la altura según el diseño */
     background: url("imgs/sunset-bg.JPG") no-repeat center center/cover;
     display: flex;
     justify-content: center;
@@ -576,142 +818,165 @@ body {
     transform: scale(1.05);
 }
 
-/* Sección de Habitaciones */
+/* ——————————————————————————————————————————
+   Carrusel de 3 tarjetas, desplazamiento 1×1
+   —————————————————————————————————————————— */
+
 .rooms-section {
     text-align: center;
-    background-color: #faf8f5;
+    background: #faf8f5;
     padding: 80px 20px;
-    font-family: "Montserrat", sans-serif; /* Aplicamos la fuente Montserrat */
+    font-family: "Montserrat", sans-serif;
 }
 
 .rooms-title {
-    font-family: "Montserrat", sans-serif;
     font-size: 36px;
     font-weight: 700;
-    color: #000;
     margin-bottom: 5px;
 }
 
 .rooms-subtitle {
-    font-family: "Montserrat", sans-serif;
     font-size: 18px;
     font-weight: 300;
     color: #525252;
     margin-bottom: 40px;
 }
 
-/* Carrusel */
+/* contenedor flechas + viewport */
 .rooms-carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
     position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
+    overflow: hidden;
 }
 
 .rooms-container {
     display: flex;
     gap: 30px;
-    overflow: hidden;
-    scroll-behavior: smooth;
-    width: 85%;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+.room-card {
+    flex: 0 0 300px; /* ancho fijo de cada tarjeta */
 }
 
+/* ventana visible: 3 tarjetas de 300px + 2 gaps de 30px = 960px */
+.rooms-viewport {
+    overflow: hidden;
+    width: calc(3 * 300px + 2 * 30px);
+}
+
+/* contenedor interno que se mueve */
+.rooms-viewport .rooms-container {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+.rooms-viewport .rooms-container {
+    width: max-content !important;
+    overflow: visible !important;
+}
+
+/* cada tarjeta fija de 300px */
 .room-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 0 0 300px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    padding: 15px;
+    text-align: left;
     cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .room-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* Tarjeta de habitación */
-.room-card {
-    background: white;
-    padding: 15px;
-    border-radius: 15px;
-    text-align: left;
-    width: 300px;
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: "Montserrat", sans-serif; /* Aplicamos la fuente a las tarjetas */
-}
-
+/* imágenes */
 .room-image {
     position: relative;
-    border-radius: 15px;
+    margin-bottom: 12px;
+    border-radius: 12px;
     overflow: hidden;
 }
 
 .room-image img {
     width: 100%;
-    border-radius: 15px;
-    display: block;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
+/* rating */
 .room-rating {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: white;
-    color: #1e6091;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 5px 10px;
+    top: 8px;
+    right: 8px;
+    background: #fff;
+    padding: 4px 8px;
     border-radius: 12px;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e6091;
 }
 
 .room-rating i {
     color: #ffd700;
 }
 
-/* Información de la habitación */
+/* texto */
 .room-name {
     font-size: 18px;
     font-weight: 600;
-    margin: 10px 0 5px;
-    color: #000;
+    margin: 0 0 8px;
 }
 
-.room-details {
+.room-icons {
+    display: flex;
+    gap: 12px;
     font-size: 14px;
-    font-weight: 300;
-    color: #525252;
-    margin-bottom: 10px;
+    color: #333;
+    margin-bottom: 12px;
 }
 
+.room-icons span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* precio */
 .room-price {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400; /* Regular */
-    font-size: 28px; /* Tamaño exacto */
-    color: #0077b6; /* Azul llamativo */
+    font-size: 28px;
+    color: #0077b6;
+    margin: 0;
 }
 
 .room-price span {
-    font-size: 16px; /* Ajustamos el tamaño del texto "/ noche" */
-    font-weight: 400;
-    color: #525252;
+    font-size: 14px;
+    color: #666;
 }
 
-/* Botones del carrusel */
+/* flechas */
 .carousel-btn {
-    background: white;
-    border: none;
-    width: 40px;
-    height: 40px;
+    background: #fff;
+    border: 2px solid #ddd;
     border-radius: 50%;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: background 0.3s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s;
+    z-index: 10;
 }
 
 .carousel-btn i {
@@ -723,20 +988,32 @@ body {
     background: #e0e0e0;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .rooms-container {
+/* móvil: scroll-snap y sin flechas */
+@media (max-width: 1000px) {
+    .rooms-viewport {
         width: 100%;
-        flex-wrap: nowrap;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
     }
-
-    .room-card {
-        min-width: 270px;
-        flex-shrink: 0;
-        scroll-snap-align: center;
+    .rooms-viewport .rooms-container {
+        flex-wrap: nowrap;
+        width: max-content;
     }
+    .room-card {
+        min-width: 280px;
+        scroll-snap-align: center;
+        margin-right: 30px;
+    }
+    .carousel-btn {
+        display: none;
+    }
+}
+
+.room-details {
+    font-size: 14px;
+    font-weight: 300;
+    color: #525252;
+    margin-bottom: 10px;
 }
 
 /* Footer */
@@ -744,7 +1021,8 @@ body {
     background-color: #408fa6;
     color: white;
     padding: 50px 20px;
-    font-family: "Lato", sans-serif; /* Fuente general */
+    font-family: "Lato", sans-serif;
+    /* Fuente general */
 }
 
 .footer-container {
@@ -936,20 +1214,24 @@ body {
 /* Fondo detrás de la imagen (más pequeño y desplazado para que sobresalga también arriba) */
 .about-image-background {
     position: absolute;
-    width: 88%; /* Un poco más pequeño que la imagen */
-    height: 100%; /* Más alto para que sobresalga por arriba */
+    width: 88%;
+    /* Un poco más pequeño que la imagen */
+    height: 100%;
+    /* Más alto para que sobresalga por arriba */
     z-index: 1;
 }
 
 /* Ajuste preciso de los fondos detrás de las imágenes */
 .blue-frame .about-image-background {
     background: #dce5f2;
-    transform: translate(-40px, -40px); /* Más a la izquierda y más arriba */
+    transform: translate(-40px, -40px);
+    /* Más a la izquierda y más arriba */
 }
 
 .gold-frame .about-image-background {
     background: #f3e1c9;
-    transform: translate(40px, -40px); /* Más a la derecha y más arriba */
+    transform: translate(40px, -40px);
+    /* Más a la derecha y más arriba */
 }
 
 /* Imagen en sí */
@@ -1143,6 +1425,7 @@ body {
         bottom: -20px;
         padding: 20px;
     }
+
     .service-card:not(:last-child) {
         margin-bottom: 30px;
     }
@@ -1162,8 +1445,10 @@ body {
 }
 
 .contact-form-section {
-    background-color: #faf8f5; /* Mismo color de fondo para toda la sección */
-    padding: 50px 20px; /* Se redujo el espacio entre las secciones */
+    background-color: #faf8f5;
+    /* Mismo color de fondo para toda la sección */
+    padding: 50px 20px;
+    /* Se redujo el espacio entre las secciones */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1231,7 +1516,8 @@ body {
 .btn-container {
     display: flex;
     justify-content: center;
-    margin-top: 30px; /* Se redujo el margen superior del botón */
+    margin-top: 30px;
+    /* Se redujo el margen superior del botón */
 }
 
 .btn-enviar {
@@ -1256,17 +1542,21 @@ body {
 .contact-separator {
     width: 90%;
     max-width: 900px;
-    height: 1px; /* Grosor reducido */
+    height: 1px;
+    /* Grosor reducido */
     background-color: #b3b3b3;
-    margin: 20px auto; /* Se redujo el espacio vertical del separador */
+    margin: 20px auto;
+    /* Se redujo el espacio vertical del separador */
     display: block;
 }
 
 /* Estilos para la sección del mapa */
 .map-section {
     text-align: center;
-    padding: 50px 20px; /* Se redujo el espacio entre el mapa y el separador */
-    background: #faf8f5; /* Se mantiene uniforme con el formulario */
+    padding: 50px 20px;
+    /* Se redujo el espacio entre el mapa y el separador */
+    background: #faf8f5;
+    /* Se mantiene uniforme con el formulario */
 }
 
 .map-title {
@@ -1291,4 +1581,400 @@ body {
     height: 400px;
     border: none;
     border-radius: 12px;
+}
+
+.btn-detalles {
+    margin-top: 10px;
+    background-color: #1e6091;
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-detalles:hover {
+    background-color: #144e78;
+    transform: translateY(-2px);
+}
+
+.btns-habitacion {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-detalles {
+    background-color: #1e6091;
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-detalles:hover {
+    background-color: #144e78;
+    transform: translateY(-2px);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-contenido {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botones-habitacion {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.btn-detalles {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 999px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-reservar {
+    background-color: #caa26a;
+    color: white;
+}
+
+.btn-reservar:hover {
+    background-color: #b88e53;
+}
+
+.btn-detalles {
+    background-color: #1e6091;
+    color: white;
+}
+
+.btn-detalles:hover {
+    background-color: #144e78;
+}
+
+.modal-img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: zoom-in;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.zoom-activo {
+    transform: scale(1.8);
+    cursor: zoom-out;
+}
+
+.descripcion {
+    font-style: italic;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.modal-info p {
+    margin: 6px 0;
+}
+
+.modal-info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.modal-info i {
+    margin-right: 8px;
+    color: #1e6091;
+    width: 20px;
+    display: inline-block;
+}
+
+.modal-acciones {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.btn-reservar-modal {
+    background-color: #caa26a;
+    color: white;
+    font-weight: bold;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 999px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-reservar-modal:hover {
+    background-color: #b88e53;
+    transform: translateY(-2px);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-cerrar {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    padding: 5px 10px;
+    transition: color 0.2s ease;
+    z-index: 999;
+}
+
+.modal-cerrar:hover {
+    color: #000;
+}
+
+.modal-img-container {
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+    margin-bottom: 15px;
+    border-radius: 12px;
+}
+
+.modal-img-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.modal-img-container.zoom-activo img {
+    transform: scale(2);
+    cursor: zoom-out;
+}
+
+.modal-img-container.zoom-activo {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 12px;
+    z-index: 9999;
+}
+
+.modal-contenido {
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-info p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: left;
+}
+
+.modal-info {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.modal-info span {
+    display: inline; /* puede ser block si quieres aún mejor separación */
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.modal-cerrar:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.modal-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.botones-habitacion {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-reservar-habitacion,
+.btn-detalles-habitacion {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 999px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 140px;
+}
+
+.btn-reservar-habitacion {
+    background-color: #caa26a;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-reservar-habitacion:hover {
+    background-color: #b88e53;
+    text-decoration: none !important;
+}
+
+.btn-detalles-habitacion {
+    background-color: #1e6091;
+    color: white;
+}
+
+.btn-detalles-habitacion:hover {
+    background-color: #144e78;
+}
+
+#filtros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    margin-top: -20px;
+    background-color: #faf8f5;
+    flex-wrap: wrap;
+}
+
+#buscador,
+#filtroCapacidad {
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 2px solid #c8a97e;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+#buscador:focus,
+#filtroCapacidad:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(200, 169, 126, 0.4);
+}
+
+#buscador {
+    width: 60%;
+    max-width: 500px;
+}
+
+#filtroCapacidad {
+    min-width: 180px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #filtros {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #buscador,
+    #filtroCapacidad {
+        width: 100%;
+    }
 }

@@ -1,146 +1,174 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Servicios - Aquamarine Resort</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-  </head>
-  <body class="services-page">
-    <header class="hero services-hero">
-      <nav class="navbar">
-        <div class="nav-container">
-          <ul class="nav-links left">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
-            <li><a href="galeria.html">Galería</a></li>
-          </ul>
-          <div class="logo">
-            <img src="imgs/logo.png" alt="Aquamarine Resort" />
-          </div>
-          <ul class="nav-links right">
-            <li><a href="habitaciones.html">Habitaciones</a></li>
-            <li><a href="servicios.html" class="active">Servicios</a></li>
-            <li><a href="contactanos.html">Contáctanos</a></li>
-          </ul>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios - Aquamarine Resort</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Font Awesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body class="services-page">
+  <header class="hero services-hero">
+    <nav class="navbar">
+      <div class="nav-container">
+        <ul class="nav-links left">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+        </ul>
+        <div class="logo">
+          <img src="imgs/logo.png" alt="Aquamarine Resort" />
         </div>
-      </nav>
-      <div class="hero-text-container">
-        <h1 class="hero-text">Servicios</h1>
-        <h2 class="hero-subtitle"></h2>
-        <p class="hero-description">
-          Descubre el lujo en cada detalle. Nuestras habitaciones de diseño,
-          gimnasio de última generación y espacios de relajación han sido
-          creados para brindarte una experiencia única y sofisticada.
+        <ul class="nav-links right">
+          <li><a href="habitaciones.html">Habitaciones</a></li>
+          <li><a href="servicios.html" class="active">Servicios</a></li>
+          <li><a href="contactanos.html">Contáctanos</a></li>
+        </ul>
+        <!-- Menú desplegable del usuario -->
+        <div id="usuario-menu" class="usuario-menu" style="display: none;">
+          <div class="usuario-avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="usuario-info">
+            <span id="usuario-nombre">Nombre Usuario</span><br>
+            <small id="usuario-correo">correo@ejemplo.com</small>
+          </div>
+          <hr>
+          <div class="usuario-opciones">
+            <a href="perfil.html">Mi perfil</a>
+            <a href="#" id="cerrarSesion" class="cerrar-sesion">Cerrar sesión</a>
+          </div>
+        </div>
+
+        <!-- Botón flotante para usuario logueado -->
+        <div id="boton-usuario" class="boton-usuario" style="display: none;">
+          <i class="fa-solid fa-user"></i>
+        </div>
+
+        <!-- Botón flotante para login si no hay sesión -->
+        <div id="boton-login" class="boton-login" style="display: none;" title="Iniciar sesión">
+          <i class="fa-solid fa-user"></i>
+        </div>
+
+      </div>
+    </nav>
+    <div class="hero-text-container">
+      <h1 class="hero-text">Servicios</h1>
+      <h2 class="hero-subtitle"></h2>
+      <p class="hero-description">
+        Descubre el lujo en cada detalle. Nuestras habitaciones de diseño,
+        gimnasio de última generación y espacios de relajación han sido
+        creados para brindarte una experiencia única y sofisticada.
+      </p>
+    </div>
+  </header>
+
+  <section class="services-section">
+    <h2 class="services-heading">
+      Explora nuestras exclusivas instalaciones
+    </h2>
+    <div class="service-container">
+      <div class="service-card">
+        <img src="imgs/servicio1.png" alt="Habitaciones de Lujo" />
+        <div class="service-info">
+          <h3 class="service-title">Habitaciones de Lujo</h3>
+          <p class="service-description">
+            Nuestras habitaciones combinan diseño elegante y confort
+            inigualable. Disfruta de una experiencia de descanso única con
+            <span style="font-weight: 600">amenidades premium</span>, vistas
+            espectaculares y atención personalizada.
+          </p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="imgs/servicio2.png" alt="Restaurantes Gourmet" />
+        <div class="service-info">
+          <h3 class="service-title">Restaurantes Gourmet</h3>
+          <p class="service-description">
+            Vive una
+            <span style="font-style: italic">experiencia gastronómica</span>
+            incomparable. Nuestro restaurante fusiona sabores exquisitos con
+            ingredientes de la
+            <span style="font-weight: 600">más alta calidad</span>, ofreciendo
+            platillos diseñados por chefs de renombre en un ambiente
+            sofisticado y acogedor.
+          </p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="imgs/servicio3.png" alt="Spa & Wellness" />
+        <div class="service-info">
+          <h3 class="service-title">Spa & Wellness</h3>
+          <p class="service-description">
+            Sumérgete en un oasis de
+            <span style="font-weight: 600">relajación</span>. Nuestro spa
+            ofrece tratamientos exclusivos, masajes revitalizantes y circuitos
+            de hidroterapia diseñados para renovar tu cuerpo y mente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3 class="footer-title">Aquamarine Resort</h3>
+        <p class="footer-description">
+          Un refugio de lujo frente al mar. Disfruta de nuestra hospitalidad,
+          vistas espectaculares y experiencias inolvidables.
+        </p>
+        <p class="footer-rights">
+          © Aquamarine Resort 2025. Derechos reservados
         </p>
       </div>
-    </header>
-
-    <section class="services-section">
-      <h2 class="services-heading">
-        Explora nuestras exclusivas instalaciones
-      </h2>
-      <div class="service-container">
-        <div class="service-card">
-          <img src="imgs/servicio1.png" alt="Habitaciones de Lujo" />
-          <div class="service-info">
-            <h3 class="service-title">Habitaciones de Lujo</h3>
-            <p class="service-description">
-              Nuestras habitaciones combinan diseño elegante y confort
-              inigualable. Disfruta de una experiencia de descanso única con
-              <span style="font-weight: 600">amenidades premium</span>, vistas
-              espectaculares y atención personalizada.
-            </p>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="imgs/servicio2.png" alt="Restaurantes Gourmet" />
-          <div class="service-info">
-            <h3 class="service-title">Restaurantes Gourmet</h3>
-            <p class="service-description">
-              Vive una
-              <span style="font-style: italic">experiencia gastronómica</span>
-              incomparable. Nuestro restaurante fusiona sabores exquisitos con
-              ingredientes de la
-              <span style="font-weight: 600">más alta calidad</span>, ofreciendo
-              platillos diseñados por chefs de renombre en un ambiente
-              sofisticado y acogedor.
-            </p>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="imgs/servicio3.png" alt="Spa & Wellness" />
-          <div class="service-info">
-            <h3 class="service-title">Spa & Wellness</h3>
-            <p class="service-description">
-              Sumérgete en un oasis de
-              <span style="font-weight: 600">relajación</span>. Nuestro spa
-              ofrece tratamientos exclusivos, masajes revitalizantes y circuitos
-              de hidroterapia diseñados para renovar tu cuerpo y mente.
-            </p>
-          </div>
+      <div class="footer-links">
+        <h4 class="footer-subtitle">Servicios</h4>
+        <ul>
+          <li><a href="#">Spa y Wellness</a></li>
+          <li><a href="#">Piscinas privadas</a></li>
+          <li><a href="#">Restaurantes Gourmet</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 class="footer-subtitle">Eventos</h4>
+        <ul>
+          <li><a href="#">Bodas frente al mar</a></li>
+          <li><a href="#">Conferencias y reuniones</a></li>
+          <li><a href="#">Experiencias Exclusivas</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4 class="footer-subtitle">Encuéntranos en:</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
         </div>
       </div>
-    </section>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const navContainer = document.querySelector(".nav-container");
 
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-about">
-          <h3 class="footer-title">Aquamarine Resort</h3>
-          <p class="footer-description">
-            Un refugio de lujo frente al mar. Disfruta de nuestra hospitalidad,
-            vistas espectaculares y experiencias inolvidables.
-          </p>
-          <p class="footer-rights">
-            © Aquamarine Resort 2025. Derechos reservados
-          </p>
-        </div>
-        <div class="footer-links">
-          <h4 class="footer-subtitle">Servicios</h4>
-          <ul>
-            <li><a href="#">Spa y Wellness</a></li>
-            <li><a href="#">Piscinas privadas</a></li>
-            <li><a href="#">Restaurantes Gourmet</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4 class="footer-subtitle">Eventos</h4>
-          <ul>
-            <li><a href="#">Bodas frente al mar</a></li>
-            <li><a href="#">Conferencias y reuniones</a></li>
-            <li><a href="#">Experiencias Exclusivas</a></li>
-          </ul>
-        </div>
-        <div class="footer-social">
-          <h4 class="footer-subtitle">Encuéntranos en:</h4>
-          <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const navContainer = document.querySelector(".nav-container");
-
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > 30) {
-            navContainer.classList.add("scrolled");
-          } else {
-            navContainer.classList.remove("scrolled");
-          }
-        });
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 30) {
+          navContainer.classList.add("scrolled");
+        } else {
+          navContainer.classList.remove("scrolled");
+        }
       });
-    </script>
-  </body>
+    });
+  </script>
+  <script src="script.js"></script>
+
+</body>
+
 </html>

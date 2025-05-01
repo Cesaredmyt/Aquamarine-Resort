@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Habitaciones - Aquamarine Resort</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome para íconos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap"
       rel="stylesheet"
@@ -14,6 +19,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
   </head>
+
   <body class="rooms-page">
     <header class="hero rooms-hero">
       <nav class="navbar">
@@ -31,6 +37,38 @@
             <li><a href="servicios.html">Servicios</a></li>
             <li><a href="contactanos.html">Contáctanos</a></li>
           </ul>
+          <!-- Menú desplegable del usuario -->
+          <div id="usuario-menu" class="usuario-menu" style="display: none">
+            <div class="usuario-avatar">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="usuario-info">
+              <span id="usuario-nombre">Nombre Usuario</span><br />
+              <small id="usuario-correo">correo@ejemplo.com</small>
+            </div>
+            <hr />
+            <div class="usuario-opciones">
+              <a href="perfil.html">Mi perfil</a>
+              <a href="#" id="cerrarSesion" class="cerrar-sesion"
+                >Cerrar sesión</a
+              >
+            </div>
+          </div>
+
+          <!-- Botón flotante para usuario logueado -->
+          <div id="boton-usuario" class="boton-usuario" style="display: none">
+            <i class="fa-solid fa-user"></i>
+          </div>
+
+          <!-- Botón flotante para login si no hay sesión -->
+          <div
+            id="boton-login"
+            class="boton-login"
+            style="display: none"
+            title="Iniciar sesión"
+          >
+            <i class="fa-solid fa-user"></i>
+          </div>
         </div>
       </nav>
       <div class="hero-text-container">
@@ -42,68 +80,62 @@
       </div>
     </header>
 
+    <div
+      id="filtros"
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin: 60px auto 20px auto; /* 🔽 Aumentamos separación hacia arriba, reducimos hacia abajo */
+        max-width: 1000px;
+      "
+    >
+      <input
+        type="text"
+        id="buscador"
+        placeholder="Buscar habitación, servicio, vista..."
+        style="
+          padding: 14px 20px;
+          width: 60%;
+          max-width: 500px;
+          border-radius: 30px;
+          border: 2px solid #0a2e5c;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 15px;
+          color: #333;
+          background-color: #fafafa;
+          box-shadow: none;
+          transition: all 0.3s ease;
+        "
+      />
+      <select
+        id="filtroCapacidad"
+        style="
+          padding: 14px 20px;
+          border-radius: 30px;
+          border: 2px solid #0a2e5c;
+          background-color: #fafafa;
+          font-size: 15px;
+          font-family: 'Montserrat', sans-serif;
+          color: #333;
+          min-width: 200px;
+          cursor: pointer;
+          box-shadow: none;
+          transition: all 0.3s ease;
+        "
+      >
+        <option value="">Todas las capacidades</option>
+        <option value="2">2 personas</option>
+        <option value="4">4 personas</option>
+        <option value="6">6 personas</option>
+      </select>
+    </div>
+
     <section class="habitaciones-section">
-      <div class="habitaciones-container">
-        <div class="habitacion">
-          <img
-            src="imgs/suite-oceanica-premier.avif"
-            alt="Suite Oceánica Premier"
-          />
-          <div>
-            <h2>Suite Oceánica Premier</h2>
-            <p>$5,200 MXN por noche</p>
-            <p>
-              Vistas panorámicas al océano, cama king-size con dosel, terraza
-              privada con jacuzzi y servicio de mayordomo personalizado.
-            </p>
-            <a href="#" class="btn-reservar">Reservar</a>
-          </div>
-        </div>
-
-        <div class="habitacion">
-          <img
-            src="imgs/gran-suite-perla-blanca.jpg"
-            alt="Gran Suite Perla Blanca"
-          />
-          <div>
-            <h2>Gran Suite Perla Blanca</h2>
-            <p>$6,000 MXN por noche</p>
-            <p>
-              Elegancia en cada detalle: baño de mármol, tina de hidromasaje,
-              sala de estar independiente y aromaterapia personalizada incluida.
-            </p>
-            <a href="#" class="btn-reservar">Reservar</a>
-          </div>
-        </div>
-
-        <div class="habitacion">
-          <img src="imgs/villa-playa-coral.jpg" alt="Villa Playa Coral" />
-          <div>
-            <h2>Villa Playa Coral</h2>
-            <p>$7,800 MXN por noche</p>
-            <p>
-              Villa privada frente al mar con acceso directo a la playa, alberca
-              infinita exclusiva, cocina gourmet y espacio para 4 personas.
-            </p>
-            <a href="#" class="btn-reservar">Reservar</a>
-          </div>
-        </div>
-
-        <div class="habitacion">
-          <img
-            src="imgs/suite-imperial-aquamarine.jpeg"
-            alt="Suite Imperial Aquamarine"
-          />
-          <div>
-            <h2>Suite Imperial Aquamarine</h2>
-            <p>$8,500 MXN por noche</p>
-            <p>
-              La experiencia más exclusiva: decoración de lujo, techos altos,
-              balcones dobles, comedor privado y atención 24/7 de concierge.
-            </p>
-            <a href="#" class="btn-reservar">Reservar</a>
-          </div>
-        </div>
+      <div class="habitaciones-container" id="habitacionesContainer">
+        <!-- Las habitaciones se van a cargar automáticamente aquí -->
       </div>
     </section>
 
@@ -144,6 +176,7 @@
         </div>
       </div>
     </footer>
+
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const navContainer = document.querySelector(".nav-container");
@@ -157,5 +190,437 @@
         });
       });
     </script>
+    <div id="modal-habitacion" class="modal">
+      <div class="modal-contenido">
+        <button
+          class="modal-cerrar"
+          onclick="cerrarModal()"
+          aria-label="Cerrar ventana"
+        >
+          &times;
+        </button>
+
+        <div class="modal-img-container">
+          <img
+            id="modal-img"
+            src=""
+            alt="Imagen habitación"
+            class="modal-img"
+          />
+        </div>
+
+        <h2 id="modal-nombre"></h2>
+        <p id="modal-precio" class="precio"></p>
+        <p id="modal-descripcion" class="descripcion"></p>
+
+        <div class="modal-info">
+          <p>
+            <i class="fa-solid fa-bath"></i> <strong>Baños:</strong>
+            <span id="modal-baños"></span>
+          </p>
+          <p>
+            <i class="fa-solid fa-bed"></i> <strong>Camas:</strong>
+            <span id="modal-camas"></span>
+          </p>
+          <p>
+            <i class="fa-solid fa-user-group"></i> <strong>Capacidad:</strong>
+            <span id="modal-personas"></span> personas
+          </p>
+          <p>
+            <i class="fa-solid fa-people-roof"></i>
+            <strong>Recomendado para:</strong> <span id="modal-tipo"></span>
+          </p>
+          <p>
+            <i class="fa-solid fa-concierge-bell"></i>
+            <strong>Servicios:</strong> <span id="modal-servicios"></span>
+          </p>
+          <p>
+            <i class="fa-solid fa-ruler-combined"></i>
+            <strong>Espacio:</strong> <span id="modal-espacio"></span> m²
+          </p>
+          <p>
+            <i class="fa-solid fa-tv"></i> <strong>Extras:</strong>
+            <span id="modal-extras"></span>
+          </p>
+          <p>
+            <i class="fa-solid fa-mountain-sun"></i> <strong>Vistas:</strong>
+            <span id="modal-vistas"></span>
+          </p>
+        </div>
+
+        <div class="modal-acciones"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const container = document.getElementById("habitacionesContainer");
+        const buscadorInput = document.getElementById("buscador");
+        const filtroCapacidad = document.getElementById("filtroCapacidad");
+        const paginationContainer = document.createElement("div");
+        const entradaGuardada = sessionStorage.getItem("reservaEntrada");
+        const salidaGuardada = sessionStorage.getItem("reservaSalida");
+        const personasGuardadas = sessionStorage.getItem("reservaPersonas");
+
+        if (entradaGuardada && salidaGuardada && personasGuardadas) {
+          console.log(
+            "Reserva desde index:",
+            entradaGuardada,
+            salidaGuardada,
+            personasGuardadas
+          );
+
+          // Puedes mostrar un mensaje o preseleccionar una habitación automáticamente.
+          // También puedes pasar estos valores al Swal.fire al dar clic en "Reservar".
+        }
+
+        paginationContainer.id = "pagination";
+        paginationContainer.style.marginTop = "20px";
+        paginationContainer.style.textAlign = "center";
+
+        let habitacionesData = [];
+        let habitacionesFiltradas = [];
+        let habitacionesPorPagina = 10;
+        let paginaActual = 1;
+
+        function renderHabitaciones() {
+          container.innerHTML = "";
+
+          let inicio = (paginaActual - 1) * habitacionesPorPagina;
+          let fin = inicio + habitacionesPorPagina;
+          let habitacionesPagina = habitacionesFiltradas.slice(inicio, fin);
+
+          habitacionesPagina.forEach((habitacion) => {
+            const espacio = habitacion.espacio?.trim() || "No disponible";
+            const extras = habitacion.extras?.trim() || "No disponible";
+            const vistas = habitacion.vistas?.trim() || "No disponible";
+            const descripcion =
+              habitacion.descripcion_larga?.trim() || "No disponible";
+            const servicios = habitacion.servicios?.trim() || "";
+            const recomendado =
+              habitacion.recomendado_para?.trim() || "No disponible";
+            const camas = habitacion.camas?.trim() || "No disponible";
+
+            // Mapeo de íconos por servicio
+            const iconosServicio = {
+              wifi: '<i class="fa-solid fa-wifi" title="Wi-Fi"></i>',
+              tv: '<i class="fa-solid fa-tv" title="TV"></i>',
+              aire: '<i class="fa-solid fa-wind" title="Aire acondicionado"></i>',
+              vista:
+                '<i class="fa-solid fa-mountain-sun" title="Vista al mar"></i>',
+              servicio:
+                '<i class="fa-solid fa-bell-concierge" title="Servicio a la habitación"></i>',
+              desayuno:
+                '<i class="fa-solid fa-mug-saucer" title="Desayuno incluido"></i>',
+            };
+
+            const serviciosActivos = servicios
+              .toLowerCase()
+              .split(",")
+              .map((s) => s.trim());
+
+            const iconos = serviciosActivos
+              .map((serv) => iconosServicio[serv])
+              .filter(Boolean)
+              .join("");
+
+            const html = `
+      <div class="habitacion" 
+        data-nombre="${habitacion.nombre}" 
+        data-baños="${habitacion.banos}" 
+        data-camas="${camas}" 
+        data-personas="${habitacion.capacidad}" 
+        data-servicios="${servicios}" 
+        data-precio="${habitacion.precio}" 
+        data-img="imgs/${habitacion.imagen}" 
+        data-descripcion="${descripcion}" 
+        data-tipo="${recomendado}"
+        data-espacio="${espacio}" 
+        data-extras="${extras}" 
+        data-vistas="${vistas}">
+
+        <img src="imgs/${habitacion.imagen}" 
+             alt="${habitacion.nombre}" 
+             class="imagen-habitacion" 
+             style="width:300px; height:300px; object-fit:cover; border-radius:10px; transition:transform 0.3s ease;"
+             onmouseover="this.style.transform='scale(1.05)'" 
+             onmouseout="this.style.transform='scale(1)'"/>
+
+        <div>
+          <h2 style="color: #0a2e5c; font-weight: bold;">${habitacion.nombre}</h2>
+          <p style="margin: 5px 0; font-weight: bold;">$${habitacion.precio} MXN por noche</p>
+          <p style="font-style: italic; color: #555;">${descripcion}</p>
+
+          <div class="iconos-servicios" style="margin: 10px 0; font-size: 20px; color: #0a2e5c; display: flex; gap: 12px; flex-wrap: wrap;">
+            ${iconos}
+          </div>
+
+          <div class="botones-habitacion" style="margin-top: 15px;">
+            <a href="#" class="btn-reservar-habitacion">Reservar</a>
+            <button class="btn-detalles-habitacion" onclick="mostrarDetallesHabitacion(this)">Ver más detalles</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+            container.innerHTML += html;
+          });
+
+          renderPagination();
+        }
+
+        function asignarEventosReserva() {
+          container
+            .querySelectorAll(".btn-reservar-habitacion")
+            .forEach((boton) => {
+              boton.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                fetch("estado_sesion.php")
+                  .then((res) => res.json())
+                  .then((data) => {
+                    if (!data.logueado) {
+                      Swal.fire({
+                        icon: "info",
+                        title: "Inicia sesión",
+                        text: "Debes iniciar sesión para reservar.",
+                        showCancelButton: true,
+                        confirmButtonText: "Ir a login",
+                        cancelButtonText: "Cancelar",
+                        confirmButtonColor: "#0a2e5c",
+                        cancelButtonColor: "#6c757d",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          window.location.href = "login.html";
+                        }
+                      });
+                      return;
+                    }
+
+                    const nombre = data.nombre;
+                    const correo = data.correo;
+                    const card = boton.closest(".habitacion");
+                    const nombreHabitacion = card.dataset.nombre;
+                    const capacidad = card.dataset.personas;
+
+                    const reservaEntrada =
+                      sessionStorage.getItem("reservaEntrada") || "";
+                    const reservaSalida =
+                      sessionStorage.getItem("reservaSalida") || "";
+                    const reservaPersonas =
+                      sessionStorage.getItem("reservaPersonas") || "";
+
+                    Swal.fire({
+                      title: `Reservar ${nombreHabitacion}`,
+                      html: `
+    <div style="text-align: left; font-family: 'Poppins', sans-serif;">
+      <label style="font-weight: bold;">📅 Fecha de entrada:</label>
+      <input type="date" id="fechaEntrada" class="swal2-input" value="${reservaEntrada}">
+
+      <label style="font-weight: bold;">📅 Fecha de salida:</label>
+      <input type="date" id="fechaSalida" class="swal2-input" value="${reservaSalida}">
+
+      <label style="font-weight: bold;">👥 Ocupación:</label>
+      <input type="number" id="personas" class="swal2-input" min="1" max="${capacidad}" value="${reservaPersonas}" placeholder="Número de personas (máx ${capacidad})">
+    </div>
+  `,
+
+                      confirmButtonText: "Confirmar reserva",
+                      confirmButtonColor: "#c8a97e",
+                      showCancelButton: true,
+                      cancelButtonText: "Cancelar",
+                      preConfirm: () => {
+                        const entrada =
+                          document.getElementById("fechaEntrada").value;
+                        const salida =
+                          document.getElementById("fechaSalida").value;
+                        const cantidad = parseInt(
+                          document.getElementById("personas").value
+                        );
+
+                        if (!entrada || !salida || isNaN(cantidad)) {
+                          Swal.showValidationMessage(
+                            "Todos los campos son obligatorios."
+                          );
+                          return false;
+                        }
+
+                        const entradaDate = new Date(entrada);
+                        const salidaDate = new Date(salida);
+
+                        if (salidaDate <= entradaDate) {
+                          Swal.showValidationMessage(
+                            "La fecha de salida debe ser posterior a la de entrada."
+                          );
+                          return false;
+                        }
+
+                        if (cantidad < 1 || cantidad > parseInt(capacidad)) {
+                          Swal.showValidationMessage(
+                            `La ocupación debe estar entre 1 y ${capacidad} personas.`
+                          );
+                          return false;
+                        }
+
+                        return {
+                          nombre_cliente: nombre,
+                          email_cliente: correo,
+                          fecha_entrada: entrada,
+                          fecha_salida: salida,
+                          personas: cantidad,
+                          habitacion_tipo: nombreHabitacion,
+                          fecha_creacion: new Date()
+                            .toISOString()
+                            .slice(0, 19)
+                            .replace("T", " "),
+                        };
+                      },
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                        fetch("procesar_reserva.php", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify(result.value),
+                        })
+                          .then((res) => res.json())
+                          .then((response) => {
+                            if (response.success) {
+                              Swal.fire(
+                                "¡Reservado!",
+                                "Tu reservación fue exitosa.",
+                                "success"
+                              );
+                            } else {
+                              Swal.fire(
+                                "Error",
+                                response.message || "No se pudo reservar.",
+                                "error"
+                              );
+                            }
+                          });
+                      }
+                    });
+                  });
+              });
+            });
+        }
+
+        function renderPagination() {
+          paginationContainer.innerHTML = "";
+          const totalPaginas = Math.ceil(
+            habitacionesFiltradas.length / habitacionesPorPagina
+          );
+
+          for (let i = 1; i <= totalPaginas; i++) {
+            const boton = document.createElement("button");
+            boton.textContent = i;
+            boton.style.margin = "0 5px";
+            boton.style.padding = "8px 12px";
+            boton.style.borderRadius = "6px";
+            boton.style.border = "1px solid #ccc";
+            boton.style.background = i === paginaActual ? "#c8a97e" : "#fff";
+            boton.style.color = i === paginaActual ? "#fff" : "#333";
+            boton.style.cursor = "pointer";
+            boton.addEventListener("click", function () {
+              paginaActual = i;
+              renderHabitaciones();
+              asignarEventosReserva();
+            });
+
+            paginationContainer.appendChild(boton);
+          }
+
+          if (!container.parentElement.contains(paginationContainer)) {
+            container.parentElement.appendChild(paginationContainer);
+          }
+        }
+
+        function aplicarFiltros() {
+          const textoBusqueda = buscadorInput.value.toLowerCase();
+          const capacidadSeleccionada = filtroCapacidad.value;
+
+          habitacionesFiltradas = habitacionesData.filter((habitacion) => {
+            const textoCompleto = (
+              habitacion.nombre +
+              " " +
+              habitacion.descripcion_larga +
+              " " +
+              habitacion.servicios +
+              " " +
+              habitacion.extras +
+              " " +
+              habitacion.recomendado_para +
+              " " +
+              habitacion.vistas
+            ).toLowerCase();
+
+            const cumpleBusqueda = textoCompleto.includes(textoBusqueda);
+            const cumpleCapacidad = capacidadSeleccionada
+              ? habitacion.capacidad == capacidadSeleccionada
+              : true;
+
+            return cumpleBusqueda && cumpleCapacidad;
+          });
+
+          paginaActual = 1;
+          renderHabitaciones();
+        }
+
+        buscadorInput.addEventListener("input", aplicarFiltros);
+        filtroCapacidad.addEventListener("change", aplicarFiltros);
+
+        fetch("obtener_habitaciones.php")
+          .then((response) => response.json())
+          .then((habitaciones) => {
+            habitacionesData = habitaciones;
+            habitacionesFiltradas = habitaciones;
+            renderHabitaciones();
+            asignarEventosReserva();
+          })
+          .catch((error) => {
+            console.error("Error al cargar habitaciones:", error);
+          });
+      });
+
+      // ✨ Función para mostrar detalles en el Modal
+      function mostrarDetallesHabitacion(btn) {
+        const card = btn.closest(".habitacion");
+
+        document.getElementById("modal-nombre").innerText =
+          card.dataset.nombre || "No disponible";
+        document.getElementById("modal-precio").innerText =
+          `$${card.dataset.precio} MXN por noche` || "No disponible";
+        document.getElementById("modal-descripcion").innerText =
+          card.dataset.descripcion || "No disponible";
+        document.getElementById("modal-baños").innerText =
+          card.dataset.baños || "No disponible";
+        document.getElementById("modal-camas").innerText =
+          card.dataset.camas || "No disponible";
+        document.getElementById("modal-personas").innerText =
+          card.dataset.personas || "No disponible";
+        document.getElementById("modal-tipo").innerText =
+          card.dataset.tipo || "No disponible";
+        document.getElementById("modal-servicios").innerText =
+          card.dataset.servicios || "No disponible";
+        document.getElementById("modal-espacio").innerText =
+          card.dataset.espacio || "No disponible";
+        document.getElementById("modal-extras").innerText =
+          card.dataset.extras || "No disponible";
+        document.getElementById("modal-vistas").innerText =
+          card.dataset.vistas || "No disponible";
+        document.getElementById("modal-img").src = card.dataset.img || "";
+
+        document.getElementById("modal-habitacion").style.display = "block";
+      }
+
+      // ✨ Función para cerrar el Modal
+      function cerrarModal() {
+        const modal = document.getElementById("modal-habitacion");
+        modal.style.display = "none";
+      }
+    </script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

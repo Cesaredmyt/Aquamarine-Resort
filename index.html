@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aquamarine Resort</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome para íconos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500&display=swap"
       rel="stylesheet"
@@ -23,6 +28,7 @@
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
   </head>
+
   <body class="home-page">
     <header class="hero">
       <nav class="navbar">
@@ -32,16 +38,44 @@
             <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
             <li><a href="galeria.html">Galería</a></li>
           </ul>
+
           <div class="logo">
             <img src="imgs/logo.png" alt="Aquamarine Resort" />
           </div>
+
           <ul class="nav-links right">
             <li><a href="habitaciones.html">Habitaciones</a></li>
             <li><a href="servicios.html">Servicios</a></li>
             <li><a href="contactanos.html">Contáctanos</a></li>
           </ul>
+
+          <div id="usuario-menu" class="usuario-menu" style="display: none">
+            <div class="usuario-avatar">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="usuario-info">
+              <span id="usuario-nombre">Nombre Usuario</span><br />
+              <small id="usuario-correo">correo@ejemplo.com</small>
+            </div>
+            <hr />
+            <div class="usuario-opciones">
+              <a href="perfil.html">Mi perfil</a>
+              <a href="#" id="cerrarSesion" class="cerrar-sesion"
+                >Cerrar sesión</a
+              >
+            </div>
+          </div>
+
+          <!-- Botón flotante -->
+          <div id="boton-usuario" class="boton-usuario" style="display: none">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div id="boton-login" class="boton-login" title="Entrar">
+            <i class="fa-solid fa-user"></i>
+          </div>
         </div>
       </nav>
+
       <div class="hero-text-container">
         <h1 class="hero-text">"Donde el lujo fluye y el tiempo se detiene."</h1>
       </div>
@@ -325,17 +359,65 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="script.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const navContainer = document.querySelector('.nav-container');
-    
-        window.addEventListener('scroll', () => {
+      document.addEventListener("DOMContentLoaded", () => {
+        const navContainer = document.querySelector(".nav-container");
+
+        window.addEventListener("scroll", () => {
           if (window.scrollY > 30) {
-            navContainer.classList.add('scrolled');
+            navContainer.classList.add("scrolled");
           } else {
-            navContainer.classList.remove('scrolled');
+            navContainer.classList.remove("scrolled");
           }
         });
       });
+    </script>
+    <script>
+      function abrirModalReserva() {
+        const entrada = document.getElementById("inputEntrada").value;
+        const salida = document.getElementById("inputSalida").value;
+        const personas = document.getElementById("inputPersonas").value;
+
+        if (!entrada || !salida || !personas) {
+          Swal.fire({
+            icon: "warning",
+            title: "Campos incompletos",
+            text: "Por favor selecciona las fechas y el número de personas antes de continuar.",
+            confirmButtonColor: "#c8a97e",
+          });
+          return;
+        }
+
+        // Validar sesión con fetch a estado_sesion.php
+        fetch("estado_sesion.php")
+          .then((res) => res.json())
+          .then((data) => {
+            if (!data.logueado) {
+              Swal.fire({
+                icon: "info",
+                title: "Inicia sesión",
+                text: "Debes iniciar sesión antes de reservar.",
+                showCancelButton: true,
+                confirmButtonText: "Ir a login",
+                cancelButtonText: "Cancelar",
+                confirmButtonColor: "#0a2e5c",
+                cancelButtonColor: "#6c757d",
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.href = "login.html";
+                }
+              });
+              return;
+            }
+
+            // Guardar en sessionStorage
+            sessionStorage.setItem("reservaEntrada", entrada);
+            sessionStorage.setItem("reservaSalida", salida);
+            sessionStorage.setItem("reservaPersonas", personas);
+
+            // Redirigir
+            window.location.href = "habitaciones.html";
+          });
+      }
     </script>
   </body>
 </html>

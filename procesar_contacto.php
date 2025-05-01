@@ -42,4 +42,3 @@ if ($success) {
 
 $stmt->close();
 $conn->close();
-?>

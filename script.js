@@ -1,3 +1,81 @@
+// Función para detectar y mostrar el icono correcto
+function detectarSesion() {
+    fetch('estado_sesion.php')
+      .then(response => response.json())
+      .then(data => {
+        const usuarioNombre = document.getElementById("usuario-nombre");
+        const usuarioCorreo = document.getElementById("usuario-correo");
+        const usuarioMenu = document.getElementById("usuario-menu");
+        const botonUsuario = document.getElementById("boton-usuario");
+        const botonLogin = document.getElementById("boton-login");
+  
+        if (data.logueado) {
+          if (usuarioNombre && usuarioCorreo) {
+            // 🔥 Aquí forzamos que si no trae nombre, al menos diga 'Usuario'
+            usuarioNombre.innerText = data.nombre ? data.nombre : "Usuario";
+            usuarioCorreo.innerText = data.correo || "";
+          }
+          if (usuarioMenu && botonUsuario && botonLogin) {
+            usuarioMenu.style.display = "none";
+            botonUsuario.style.display = "flex";
+            botonLogin.style.display = "none";
+          }
+        } else {
+          if (botonUsuario && botonLogin) {
+            botonUsuario.style.display = "none";
+            botonLogin.style.display = "flex";
+          }
+        }
+      })
+      .catch(error => {
+        console.error("Error detectando sesión:", error);
+      });
+  }
+  
+  
+
+// Función para abrir o cerrar el menú de usuario
+function configurarEventos() {
+  const botonUsuario = document.getElementById("boton-usuario");
+  const menuUsuario = document.getElementById("usuario-menu");
+  const botonLogin = document.getElementById("boton-login");
+  const cerrarSesionBtn = document.getElementById("cerrarSesion");
+
+  if (botonUsuario && menuUsuario) {
+    botonUsuario.addEventListener("click", () => {
+      menuUsuario.style.display = (menuUsuario.style.display === "none") ? "block" : "none";
+    });
+  }
+
+  if (botonLogin) {
+    botonLogin.addEventListener("click", () => {
+      window.location.href = "login.html";
+    });
+  }
+
+  if (cerrarSesionBtn) {
+    cerrarSesionBtn.addEventListener("click", () => {
+      fetch('logout.php')
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            window.location.href = "index.html";
+          }
+        })
+        .catch(error => {
+          console.error("Error cerrando sesión:", error);
+        });
+    });
+  }
+}
+
+// Ejecutar al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+  detectarSesion();
+  configurarEventos();
+});
+
+
 function mostrarCalendario(tipo) {
     const input = document.getElementById(`input${capitalizar(tipo)}`);
     if (input && input._flatpickr) {
@@ -47,6 +125,16 @@ function actualizarPersonas() {
 // Capitalizar primera letra
 function capitalizar(texto) {
     return texto.charAt(0).toUpperCase() + texto.slice(1);
+}
+
+function cerrarModal() {
+    const modal = document.getElementById("modal-habitacion");
+    modal.style.display = "none";
+    document.querySelector(".modal-img-container").classList.remove("zoom-activo");
+}
+
+function ampliarImagen(container) {
+    container.classList.toggle("zoom-activo");
 }
 
 // Modal placeholder (para después)
