@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mis reservaciones</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+      }
+
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #009688;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      .perfil-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .btn-guardar {
+      background-color: #1e6091;
+      color: white;
+    }
+    .btn-volver {
+      background-color: #c8a97e;
+      color: white;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Mis reservaciones</h1>
+
+    <table id="tablaReservaciones">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Habitación</th>
+          <th>Fecha de entrada</th>
+          <th>Fecha de salida</th>
+          <th>Personas</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Los datos se insertan aquí dinámicamente -->
+      </tbody>
+    </table>
+
+    <div class="perfil-buttons">
+        <button type="button" class="btn btn-volver" onclick="regresar()">Regresar</button>
+      </div>
+
+    <script>
+      // Primero, obtenemos el correo del usuario desde la sesión en PHP
+      fetch("obtener_usuario.php")
+        .then((res) => res.json())
+        .then((data) => {
+          if (!data.logueado || !data.correo) {
+            alert("No hay sesión activa. Por favor inicia sesión.");
+            window.location.href = "login.html";
+            return;
+          }
+
+          const email = data.correo;
+
+          // Ahora hacemos fetch a las reservaciones del usuario
+          fetch(`api_reservaciones.php?email=${encodeURIComponent(email)}`)
+            .then((res) => res.json())
+            .then((data) => {
+              const tbody = document.querySelector("#tablaReservaciones tbody");
+
+              if (data.length === 0) {
+                const row = document.createElement("tr");
+                row.innerHTML = `<td colspan="6">No hay reservaciones registradas</td>`;
+                tbody.appendChild(row);
+                return;
+              }
+
+              data.forEach((reserva) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                <td>${reserva.id}</td>
+                <td>${reserva.habitacion_tipo}</td>
+                <td>${reserva.fecha_entrada}</td>
+                <td>${reserva.fecha_salida}</td>
+                <td>${reserva.personas}</td>
+                <td>Reservado</td>
+              `;
+                tbody.appendChild(row);
+              });
+            })
+            .catch((err) => {
+              console.error("Error al obtener reservaciones:", err);
+              alert("Hubo un error al cargar tus reservaciones.");
+            });
+        })
+        .catch((err) => {
+          console.error("Error al verificar sesión:", err);
+          alert("No se pudo verificar la sesión del usuario.");
+        });
+        function regresar() {
+      window.history.back();
+    }
+    </script>
+  </body>
+</html>
